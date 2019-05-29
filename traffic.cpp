@@ -23,7 +23,7 @@ class road
         {
             con=0;
             vehicles=0;
-            light = 'R';
+            light = 'G';
         }
 
         void total()
@@ -66,26 +66,45 @@ double traffic[n][n] = {  {inf,0.8,inf,inf,1,inf,inf},
                         {inf,inf,inf,1.2,inf,2.7,inf}
                     };*/
 };
-class Signal()
+
+class Signal
 {
     public:
     int dur;
-
-    void Signal()
+    vector < pair<int,double,char> >v;
+    void Signal(road r[4])
     {
         dur=60;
-    }
-    void TrafficLight()
-    {
-        
+        for(int i=0;i<4;i++)
+        {
+            v.insert(i+1 , r[i].con , r[i].light);
+        }
     }
 
+    void DispQueue()
+    {
+        vector<pair<int,double,char> > :: iterator it1= v.begin();
+        vector<int,double,char>::iterator it2;
+        while(it1!=v.end())
+        {
+            it2 = it1->begin();
+            while(it2!=it1->end())
+            {
+                cout<<*it2;
+                it2++;
+            }
+            it1++;
+        }
+    }
+    /*void TrafficLight()
+    {
+        
+    }*/
+};
 
 int main()
 {
     road r[4];
-    Signal s;
-
     int ch;
     for(int i=0;i<4;i++)
     {
@@ -144,7 +163,9 @@ int main()
         r[i].Display();
     }
 
-    
+    Signal s(r);
+    s.DispQueue();
+
 
     return 0;
 }
