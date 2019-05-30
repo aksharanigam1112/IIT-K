@@ -3,17 +3,18 @@
 #include<bits/stdc++.h>
 #define size 75
 #include "movement.cpp"
+#include "signal.cpp"
 using namespace std;
 class road
 {
     public:
-        int truck[4] = {4,30,0,0};
-        int bus[4] = {3,35,0,0};
-        int car[4] = {2,40,0,0};
-        int tempo[4]={2,35,0,0};
-        int bike[4] = {1,45,0,0};
-        int cycle[4] = {1,20,0,0};
-        int erick[4] = {2,25,0,0};
+        int truck[4] = {4,15,0,0};
+        int bus[4] = {3,20,0,0};
+        int car[4] = {2,30,0,0};
+        int tempo[4]={2,25,0,0};
+        int bike[4] = {1,35,0,0};
+        int cycle[4] = {1,10,0,0};
+        int erick[4] = {2,20,0,0};
 
         int vehicles,space,rows;
         double con;
@@ -47,42 +48,15 @@ class road
             cout<<"\nTotal Vehicles = "<<vehicles;
             cout<<"\nCongestion = "<<con;
         }
-};
 
-/*class Signal
-{
-    public:
-    int dur;
-    vector < pair<int,double,char> >v;
-    void Signal(road r[4])
-    {
-        dur=60;
-        for(int i=0;i<4;i++)
+        void Congestion()           //Slow Truck Problem or Weakest Link Networking Problem
         {
-            v.insert(i+1 , r[i].con , r[i].light);
-        }
-    }
-
-    void DispQueue()
-    {
-        vector<pair<int,double,char> > :: iterator it1= v.begin();
-        vector<int,double,char>::iterator it2;
-        while(it1!=v.end())
-        {
-            it2 = it1->begin();
-            while(it2!=it1->end())
-            {
-                cout<<*it2;
-                it2++;
-            }
-            it1++;
-        }
-    }
-    void TrafficLight()
-    {
+            int min=0;
+            if(r[i].truck[3]*truck)  //Jaam will move with the speed of the truck
         
-    }
-};*/
+
+        }
+};
 
 int main()
 {
@@ -163,11 +137,10 @@ int main()
         r[i].Display();
     }
 
-    /*int source , destination,l;
+    int source , destination,l;
     cout<<"\n\nEnter source & destination :- ";
-    cin>>source>>destination;*/
-    int l;
-
+    cin>>source>>destination;
+    
     cout<<"\nEnter the total no. of psuedo-lanes (not more than 3):- ";
     cin>>l;
     
@@ -204,8 +177,14 @@ int main()
         display(r[i].arr , r[i].rows);
     }
     
-
-    /*Signal s(r);
-    s.DispQueue();*/
+    if( (source==1 && destination==2) || (source==2 && destination==3) || (source==3 && destination==4) || (source==4 && destination==2))
+        movementLeft();
+    
+    if((source==1 && destination==3) || (source==2 && destination==4) || (source==3 && destination==1) || (source==4 && destination==2))
+        movementStriaght();
+    
+    if((source==1 && destination==4) || (source==2 && destination==1) || (source==3 && destination==2) || (source==4 && destination==3))
+        movementRight();
+            
     return 0;
 }
