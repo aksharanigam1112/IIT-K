@@ -37,10 +37,55 @@ void display(char arr[25][3],int rows)
         cout<<endl;
     }
 }
-/*void movement3()
+void movementLeft()
 {
+    cout<<"\n\n\t\t If 1st Row th vehicle moves left";
+    cout<<"\nJaam Causing Hindrances will occur in:- ";
+    cout<<"\n1 2 3";
+    cout<<"\nL R S";
+    cout<<"\nL S L";
+    cout<<"\n No Hinderances will occur in:- ";
+    cout<<"\n1 2 3";
+    cout<<"\nL S R";
+    cout<<"\nL R R";
+    cout<<"\nL S S";
+    cout<<"\nL L S";
+    cout<<"\nL L L";
+}
 
-}*/
+void movementRight()
+{
+    cout<<"\n\n\t\t If 1st Row th vehicle moves right";
+    cout<<"\nJaam Causing Hindrances will occur in:- ";
+    cout<<"\n1 2 3";
+    cout<<"\nR S R";
+    cout<<"\nR R S";
+    cout<<"\nR S L";
+    cout<<"\nR L S";
+    cout<<"\nR L L";
+    cout<<"\n No Hinderances will occur in:- ";
+    cout<<"\n1 2 3";
+    cout<<"\nR R R";
+    cout<<"\nR S S";
+}
+
+void movementStriaght()
+{
+    cout<<"\n\n\t\t If 1st Row th vehicle moves straight";
+    cout<<"\nJaam Causing Hindrances will occur in:- ";
+    cout<<"\n1 2 3";
+    cout<<"\nS R S";
+    cout<<"\nS R R";
+    cout<<"\nS L L";
+    cout<<"\nS L S";
+    cout<<"\nS S L";
+    cout<<"\n No Hinderances will occur in:- ";
+    cout<<"\n1 2 3";
+    cout<<"\nS S S";
+    cout<<"\nS S R";
+    cout<<"\nS R R";
+}
+
 
 /*int main()
 { 
