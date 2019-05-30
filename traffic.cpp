@@ -50,7 +50,7 @@ class road
         }
         double* calculateBenefit()
         {
-            double ratio[7];
+            static double ratio[7];
             ratio[0] = truck[1]/truck[2];
             ratio[1] = bus[1]/bus[2];
             ratio[2] = car[1]/car[2];
@@ -58,6 +58,7 @@ class road
             ratio[4] = erick[1]/erick[2];
             ratio[5] = cycle[1]/cycle[2];
             ratio[6] = bike[1]/bike[2];
+            return ratio;
         }
 
         /*void Congestion()           //Slow Truck Problem or Weakest Link Networking Problem
