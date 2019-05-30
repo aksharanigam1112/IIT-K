@@ -48,14 +48,25 @@ class road
             cout<<"\nTotal Vehicles = "<<vehicles;
             cout<<"\nCongestion = "<<con;
         }
+        double* calculateBenefit()
+        {
+            double ratio[7];
+            ratio[0] = truck[1]/truck[2];
+            ratio[1] = bus[1]/bus[2];
+            ratio[2] = car[1]/car[2];
+            ratio[3] = tempo[1]/tempo[2];
+            ratio[4] = erick[1]/erick[2];
+            ratio[5] = cycle[1]/cycle[2];
+            ratio[6] = bike[1]/bike[2];
+        }
 
-        void Congestion()           //Slow Truck Problem or Weakest Link Networking Problem
+        /*void Congestion()           //Slow Truck Problem or Weakest Link Networking Problem
         {
             int min=0;
-            if(r[i].truck[3]*truck)  //Jaam will move with the speed of the truck
+            if(ruck[3 //Jaam will move with the speed of the truck
         
 
-        }
+        }*/
 };
 
 int main()
