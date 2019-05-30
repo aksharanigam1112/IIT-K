@@ -3,9 +3,16 @@
 #include<time.h>
 #include<stdlib.h>
 using namespace std;
-int hinder,rows=8;
-//array<array<char,3>,8 > arr;
-void arrange(int n , char ch)
+
+void define(char arr[25][3])
+{
+    for(int i=0;i<25;i++)
+    {
+        for(int j=0;j<3;j++)
+            arr[i][j] = ' ';
+    }
+}
+void arrange(int n , char ch , char arr[25][3] , int rows)
 {
     int i , j;
     srand(time(NULL));
@@ -16,12 +23,12 @@ void arrange(int n , char ch)
         if(arr[i][j]==' ')
         {
             arr[i][j] = ch;
-             n--;
+            n--;
         }
     }
     
 }
-void display()
+void display(char arr[25][3],int rows)
 {
     for(int i=0;i<rows;i++)
     {
@@ -30,15 +37,18 @@ void display()
         cout<<endl;
     }
 }
-void movement3()
+/*void movement3()
 {
 
-}
+}*/
 
-int main()
+/*int main()
 { 
-    arrange(15,'T');
-    arrange(9,'C');
-    display();
+    srand(time(NULL));
+    char arr[25][3];
+    define(arr);
+    arrange(15,'T',arr,8);
+    arrange(9,'C',arr,8);
+    display(arr,8);
     return 0;
-}
+}*/
