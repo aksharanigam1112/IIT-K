@@ -4,17 +4,15 @@ import random
 x = np.chararray((25,3))
 x[:] = ''
 
-def arange(n, ch, x, rows, col):
-    while(n>0):
+def arange( ch, x, rows, col):
+    i = random.randint(0,rows-1)
+    j = random.randint(0,col-1)
+    while(x[i][j]!=''):
         i = random.randint(0,rows-1)
         j = random.randint(0,col-1)
-        if(x[i][j] == ''):
-            x[i][j] = ch
-            n -= 1
+    x[i][j] = ch
     return x
 
-c = arange(10,'T',x,25,3)
-print(c)
 
 def movementLeft():
     print("\n\n\t\t If 1st Row th vehicle moves left")
@@ -44,7 +42,7 @@ def movementRight():
     print("\nR R R")
     print("\nR S S")
 
-def movementStriaght():
+def movementStraight():
     print("\n\n\t\t If 1st Row th vehicle moves straight")
     print("\nJaam Causing Hindrances will occur in:- ")
     print("\n1 2 3")
