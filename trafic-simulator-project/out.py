@@ -195,7 +195,7 @@ def main():
         print("\n\tarrangement of road ",i+1," is :- ")
         print(r[i].x)
     
-    if((source==1 and destination==2) or (source==2 and destination==3) or (source==3 and destination==4) or (source==4 and destination==2)):
+    if((source==1 and destination==2) or (source==2 and destination==3) or (source==3 and destination==4) or (source==4 and destination==1)):
         movementLeft()
     
     if((source==1 and destination==3) or (source==2 and destination==4) or (source==3 and destination==1) or (source==4 and destination==2)):
