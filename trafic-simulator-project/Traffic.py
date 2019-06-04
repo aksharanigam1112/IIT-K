@@ -1,55 +1,103 @@
 import numpy as np
 import math
 import random
-from Movement import arange, movementLeft, movementRight, movementStraight
+from Movement import arange, movementLeft, movementRight, movementStraight , movementLane
 
 SIZE = 75
 
 class vehicle:
+
     def __init__(self,type,space):
-        self.type=type
-        self.space=space
+            self.type = type
+            self.space=space
+
+    def direction(self):
+        dir = ['L', 'S', 'R']
+        i=random.randint(0,2)
+        return dir[i]
 
 class road:
-    x = np.chararray((25,3))
+
+    x = np.chararray((25,3),itemsize = 3 , unicode=True)
 
     def __init__(self, space, con,vehicles, data):
+
         self.space = space
-        self.truck = [4,15,0,0]
+
+        self.truck = [5,15,0,0]
         self.truck[2]=data[0]
         self.truck[3]=data[0]*self.truck[0]
-        self.bus = [3,20,0,0]
-        self.bus[2]=data[1]
-        self.bus[3]=data[1]*self.bus[0]
+
+        self.utroller = [7,15,0,0]
+        self.utroller[2] = data[1]
+        self.utroller[3] = data[1]*self.utroller[0]
+
+        self.ltroller = [7,10,0,0]
+        self.ltroller[2] = data[2]
+        self.ltroller[3] = data[2]*self.utroller[0]
+
+        self.utanker = [6,20,0,0]
+        self.utanker[2] = data[3]
+        self.utanker[3] = data[3]*self.utanker[0]
+
+        self.ltanker = [6,10,0,0]
+        self.ltanker[2] = data[4]
+        self.ltanker[3] = data[4]*self.ltanker[0]
+
+        self.bus = [5,20,0,0]
+        self.bus[2]=data[5]
+        self.bus[3]=data[5]*self.bus[0]
+
         self.car = [2,30,0,0]
-        self.car[2]=data[2]
-        self.car[3]=data[2]*self.car[0]
-        self.tempo = [2,25,0,0]
-        self.tempo[2]=data[4]
-        self.tempo[3]=data[4]*self.tempo[0]
-        self.bike = [1,35,0,0]
-        self.bike[2]=data[5]
-        self.bike[3]=data[5]*self.bike[0]
-        self.cycle = [1,10,0,0]
-        self.cycle[2]=data[6]
-        self.cycle[3]=data[6]*self.cycle[0]
+        self.car[2]=data[6]
+        self.car[3]=data[6]*self.car[0]
+
         self.erick = [2,20,0,0]
-        self.erick[2]=data[3]
-        self.erick[3]=data[3]*self.erick[0]
+        self.erick[2]=data[7]
+        self.erick[3]=data[7]*self.erick[0]
+
+        self.tempo = [2,25,0,0]
+        self.tempo[2]=data[8]
+        self.tempo[3]=data[8]*self.tempo[0]
+
+        self.bike = [1,35,0,0]
+        self.bike[2]=data[9]
+        self.bike[3]=data[9]*self.bike[0]
+
+        self.cycle = [1,10,0,0]
+        self.cycle[2]=data[10]
+        self.cycle[3]=data[10]*self.cycle[0]
+        
         self.con = con
         self.vehicles=vehicles
         self.unplaced=[]
-        for i in range(7):
-            for j in range(data[i]):
-                self.unplaced.append(i)
-        random.shuffle(self.unplaced)
 
-        #light = 'G'
+        i=0
+        while(i<11):
+            j=0
+            while(j<data[i]):
+                self.unplaced.append(i)
+                j+=1
+            i+=1
+        
+        random.shuffle(self.unplaced)
 
     def Display(self):
 
         if(self.truck[2] != 0):
             print("\nNo. of trucks = ",self.truck[2]," & space consumed = ",self.truck[3])
+
+        if(self.utroller[2] != 0):
+            print("\nNo. of unloaded trollers = ",self.utroller[2]," & space consumed = ",self.utroller[3])
+        
+        if(self.ltroller[2] != 0):
+            print("\nNo. of loaded trollers = ",self.ltroller[2]," & space consumed = ",self.ltroller[3])
+
+        if(self.utanker[2] != 0):
+            print("\nNo. of unloaded tankers = ",self.utanker[2]," & space consumed = ",self.utanker[3])
+        
+        if(self.ltanker[2] != 0):
+            print("\nNo. of loaded tankers = ",self.ltanker[2]," & space consumed = ",self.ltanker[3])
         
         if(self.bus[2] != 0):
             print("\nNo. of buses = ",self.bus[2]," & space consumed = ",self.bus[3])
@@ -69,99 +117,132 @@ class road:
         if(self.cycle[2] !=0):
             print("\nNo. of cycles = ",self.cycle[2]," & space consumed = ",self.cycle[3])  
         
-        self.vehicles = self.truck[2] + self.bus[2] + self.car[2] + self.tempo[2] + self.erick[2] + self.bike[2] + self.cycle[2]
+        self.vehicles = self.truck[2]+self.ltroller[2]+self.utroller[2]+self.ltanker[2]+self.utanker[2]+self.bus[2]+self.car[2]+self.tempo[2]+self.erick[2]+self.bike[2]+self.cycle[2]
         print("\nTotal Vehicles = ", self.vehicles)
         print("\nCongestion = ", self.con)
         print(self.unplaced)
         
 
-    """def calculateBenefit(self):
-        
-        ratio = []
-        ratio[0] = road.truck[1] / road.truck[2]
-        ratio[1] = road.bus[1] / road.bus[2]
-        ratio[2] = road.car[1] / road.car[2]
-        ratio[3] = road.tempo[1] / road.tempo[2]
-        ratio[4] = road.erick[1] / road.erick[2]
-        ratio[5] = road.cycle[1] / road.cycle[2]
-        ratio[6] = road.bike[1] / road.bike[2]
-        return ratio"""
-
 def main():
 
     r = []
-    for i in range(4):
+    i=0
+    while(i<4):
 
         print("\n\t\tEnter the details for road ",i+1)
         print("\n\tUnit of space occupied:- ")
         space = int(input())
         con = space / SIZE
-        data=[0,0,0,0,0,0,0]
+        data=[0,0,0,0,0,0,0,0,0,0,0]
         while(space > 0):
-        
-            print("\n\tTruck...1")
-            print("\n\tBuses...2")
-            print("\n\tCars...3")
-            print("\n\tE-Rickshaw...4")
-            print("\n\tTempo...5")
-            print("\n\tBikes & Scooty...6")
-            print("\n\tCycles...7")
+
+            print("\n\tTruck...1")                  #T1
+            print("\n\tUnloaded Troller...2")       #T31
+            print("\n\tLoaded Troller...3")         #T32
+            print("\n\tUnloaded Tanker...4")        #T21
+            print("\n\tLoaded Tanker...5")          #T22
+            print("\n\tBuses...6")                  #B1
+            print("\n\tCars...7")                   #C1
+            print("\n\tE-Rickshaw...8")             #E
+            print("\n\tTempo...9")                  #T4
+            print("\n\tBikes & Scooty...10")        #B2
+            print("\n\tCycles...11")                #C2
             print("\nEnter your choice:- ")
             ch = int(input())
-            
-            if(ch == 1):
-                print("\nEnter the number of trucks:- ")
-                T = int(input())
-                data[0]=T
-                space-=data[0]*4
 
+            if(ch == 1):
+
+                print("\nEnter the number of trucks:- ")
+                T1 = int(input())
+                data[0]=T1
+                space-=data[0]*5
 
             elif(ch == 2):
-                print("\nEnter the number of buses:- ")
-                B = int(input())
-                data[1]=B
-                space-=data[1]*3
-        
-            elif(ch == 3):    
-                print("\nEnter the number of cars :- ")
-                C = int(input())
-                data[2]=C
-                space-=data[2]*2
-                
+
+                print("\nEnter the number of Unloaded Trollers:- ")
+                T31 = int(input())
+                data[1]=T31
+                space-=data[1]*7
+
+            elif(ch == 3):
+
+                print("\nEnter the number of Loaded Trollers:- ")
+                T32 = int(input())
+                data[2]=T32
+                space-=data[2]*7
+
             elif(ch == 4):
+
+                print("\nEnter the number of Unloaded Tankers:- ")
+                T21 = int(input())
+                data[3]=T21
+                space-=data[3]*6
+
+            elif(ch == 5):
+
+                print("\nEnter the number of Loaded Tanker:- ")
+                T22 = int(input())
+                data[4]=T22
+                space-=data[4]*6
+
+            elif(ch == 6):
+
+                print("\nEnter the number of buses:- ")
+                B1 = int(input())
+                data[5]=B1
+                space-=data[5]*5
+        
+            elif(ch == 7):
+
+                print("\nEnter the number of cars :- ")
+                C1 = int(input())
+                data[6]=C1
+                space-=data[6]*2
+                
+            elif(ch == 8):
+
                 print("\nEnter the number of E-rickshaw:- ")
                 E = int(input())
-                data[3]=E
-                space-=data[3]*2
+                data[7]=E
+                space-=data[7]*2
                 
-            elif(ch == 5):
+            elif(ch == 9):
+
                 print("\nEnter the number of Tempos:- ")
-                t = int(input())
-                data[4]=t
-                space-=data[4]*2
+                T4 = int(input())
+                data[8]=T4
+                space-=data[8]*2
                
-            elif(ch == 6):
+            elif(ch == 10):
+
                 print("\nEnter the number of Bikes & scooty:- ")
-                b = int(input())
-                data[5]=b
-                space-=data[5]*1
+                B2 = int(input())
+                data[9]=B2
+                space-=data[9]*1
                 
-            elif(ch == 7):
+            elif(ch == 11):
+
                 print("\nEnter the number of Cycles:- ")
-                c = int(input())
-                data[6]=c
-                space-=data[6]*1
+                C2 = int(input())
+                data[10]=C2
+                space-=data[10]*1
                 
         vehicles=0
-        for j in range(7):
+        j=0
+        while(j<11):
+
             vehicles+=data[j]
+            j+=1
+        
         r.append(road(space,con,vehicles,data))
+        i+=1
     
-    for i in range(0,4):
+    i=0
+    while(i<4):
 
         print("\n\n\t\tDetails for road ",i+1," are:- ")
         r[i].Display()
-
+        i+=1
 
     print("\n\nEnter source & destination :- ")
     source = int(input())
@@ -170,45 +251,106 @@ def main():
     print("\nEnter the total no. of psuedo-lanes (not more than 3):- ")
     l = int(input())
     
-    for i in range(4):
+    i=0
+    while(i<4):
         
-        # print("\nTest 1")
-        r[i].rows = math.ceil(r[i].vehicles/l)
+        rows =24
         r[i].x[:] = ''
-        
-
+        v=[]
+        k=0
         for j in r[i].unplaced:
-            
             if(j==0):
-                arange('T',r[i].x,r[i].rows,l)
-            
+                v.append(vehicle("T1",5))
+                dir=v[k].direction()
+                arange("T1",5,r[i].x,rows,l,dir)
+
             if(j==1):
-                arange('B',r[i].x,r[i].rows,l)
+                v.append(vehicle("T31",6))
+                dir=v[k].direction()
+                arange("T31",6,r[i].x,rows,l,dir)
             
             if(j==2):
-                arange('C',r[i].x,r[i].rows,l)
-            
+                v.append(vehicle("T32",6))
+                dir=v[k].direction()
+                arange("T32",6,r[i].x,rows,l,dir)
+
             if(j==3):
-                arange('t',r[i].x,r[i].rows,l)
+                v.append(vehicle("T21",7))
+                dir=v[k].direction()
+                arange("T21",7,r[i].x,rows,l,dir)
             
             if(j==4):
-                arange('E',r[i].x,r[i].rows,l)
-        
-            if(j==5):
-                arange( 'b', r[i].x , r[i].rows,l)
+                v.append(vehicle("T22",7))
+                dir=v[k].direction()
+                arange("T22",7,r[i].x,rows,l,dir)
             
-            if(j==6):
-                arange( 'c', r[i].x , r[i].rows,l)
+            elif(j==5):
+                v.append(vehicle("B1",5))
+                dir=v[k].direction()
+                arange("B1",5,r[i].x,rows,l,dir)
+            
+            elif(j==6):
+                v.append(vehicle("C1",3))
+                dir=v[k].direction()
+                arange('C1',3,r[i].x,rows,l,dir)
+            
+            elif(j==7):
+                v.append(vehicle("T4",2))
+                dir=v[k].direction()
+                arange("T4",2,r[i].x,rows,l,dir)
+            
+            elif(j==8):
+                v.append(vehicle("E",2))
+                dir=v[k].direction()
+                arange("E",2,r[i].x,rows,l,dir)
+        
+            elif(j==9):
+                v.append(vehicle("B2",1))
+                dir=v[k].direction()
+                arange("B2",1,r[i].x,rows,l,dir)
+            
+            elif(j==10):
+                v.append(vehicle("C2",1))
+                dir=v[k].direction()
+                arange("C2",1,r[i].x,rows,l,dir)
+
+            else:
+                pass
+            k+=1
+            
         print("\n\tArrangement of road ",i+1," is :- ")
         print(r[i].x)
+        i+=1
     
     if((source==1 and destination==2) or (source==2 and destination==3) or (source==3 and destination==4) or (source==4 and destination==2)):
+
         movementLeft()
     
     if((source==1 and destination==3) or (source==2 and destination==4) or (source==3 and destination==1) or (source==4 and destination==2)):
+
         movementStraight()
     
     if((source==1 and destination==4) or (source==2 and destination==1) or (source==3 and destination==2) or (source==4 and destination==3)):
+
         movementRight()
+    
+    i=0
+    while(i<4):
+
+        print("\n\tFor road ",(i+1))
+
+        j=0
+        while(j<3):
+
+            if(j==0):
+                print("\n\t\tFor Lane Moving Left")
+            elif(j==1):
+                print("\n\t\tFor Lane Moving Straight")
+            elif(j==2):
+                print("\n\t\tFor Lane Moving Right")
+
+            movementLane(r[i].x,rows ,j)
+            j+=1
+        i+=1
 
 main()
