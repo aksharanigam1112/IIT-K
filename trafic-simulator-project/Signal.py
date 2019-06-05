@@ -1,4 +1,3 @@
-# from Traffic import *
 import numpy as np
 from Movement import movementLane
 class Signal:
@@ -16,10 +15,30 @@ class Signal:
     def lightGreen(self,j , r):
         
         i=1
-        while(i<3):
-            movementLane(r[j].x , r , i )
-            
-
+        # while(i<3):
+        #     # movementLane(r[j].x , r , i )
+        #     i+=1
+    # def speed(x):
+    #     i=0
+    #     j=0
+    #     speedmat=np.array(25,3)
+    #     while(i<25):
+    #         while(j<3):
+    #             ch=x[i][j]
+    #             if(ch=='T1'):
+    #                 speedmat[i][j]=15
+    #             elif(ch=='T31'):
+    #                 speedmat[i][j]=15
+    #             elif(ch=='T32'):
+    #                 speedmat[i][j]=10
+    #             elif(ch=='T21'):
+    #                 speedmat[i][j]=20
+    #             elif(ch=='T22'):
+    #                 speedmat[i][j]=10
+    #             elif(ch=='T32'):
+    #                 speedmat[i][j]=10
+    #             j+=1
+    #         i+=1
 
 
 def mainSiganl(p):
@@ -29,10 +48,9 @@ def mainSiganl(p):
     while(i<4):
         s.append(Signal(colour))
         i+=1
-    
     i=0
     while(i<4):
-        print("\n")
         s[i].lightGreen(24,3)
-        print(p[i].x)
+        print("for road ",i+1)
+        print(p[i].sp)
         i+=1

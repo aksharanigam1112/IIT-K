@@ -19,9 +19,12 @@ class vehicle:
 
 class road:
 
-    x = np.chararray((25,3),itemsize = 3 , unicode=True)
-
+    
     def __init__(self, space, con,vehicles, data):
+
+        self.x = np.chararray((25,3),itemsize = 3 , unicode=True)
+        self.sp=np.zeros((25,3))
+
 
         self.space = space
 
@@ -72,7 +75,7 @@ class road:
         self.con = con
         self.vehicles=vehicles
         self.unplaced=[]
-
+        
         i=0
         while(i<11):
             j=0
@@ -266,22 +269,22 @@ def main():
                 dir=v[k].direction()
                 arange("T1",5,r[i].x,rows,l,dir)
 
-            if(j==1):
+            elif(j==1):
                 v.append(vehicle("T31",6))
                 dir=v[k].direction()
                 arange("T31",6,r[i].x,rows,l,dir)
             
-            if(j==2):
+            elif(j==2):
                 v.append(vehicle("T32",6))
                 dir=v[k].direction()
                 arange("T32",6,r[i].x,rows,l,dir)
 
-            if(j==3):
+            elif(j==3):
                 v.append(vehicle("T21",7))
                 dir=v[k].direction()
                 arange("T21",7,r[i].x,rows,l,dir)
             
-            if(j==4):
+            elif(j==4):
                 v.append(vehicle("T22",7))
                 dir=v[k].direction()
                 arange("T22",7,r[i].x,rows,l,dir)
@@ -351,10 +354,8 @@ def main():
             elif(j==2):
                 print("\n\t\tFor Lane Moving Right")
 
-            movementLane(r[i].x,rows ,j)
+            movementLane(r[i].x,rows ,j,r[i].sp)
             j+=1
         i+=1
-    
     mainSiganl(r)
-
 main()
