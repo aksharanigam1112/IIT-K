@@ -1,62 +1,68 @@
 import numpy as np
 import random
 
-
-# x = np.chararray((25,3), itemsize = 3 ,unicode =True)
-# x[:] = ''
-
 def arange( ch, space, x, rows, col,dir):
 
     i = 0
-    # i1=0
-    # i2=0
-    # i3=0
-    # while(i<25):
-    #     if(arr[i][j]==''):
-    #         i1=i
-    #     i1=i
+    i1=0
+    i2=0
+    i3=0
+    flag=1
+    while(i<25):
+        if(x[i][0]=='' and flag%2!=0):
+            i1=i
+            flag*=2
+        if(x[i][1]=='' and flag%3!=0):
+            i2=i
+            flag*=3
+        if(x[i][2]==''and flag%5!=0):
+            i3=i
+            flag*=5
+        if(flag%30==0):
+            break
+        i+=1
     if(dir=='L'):
+        i=0
         j=0
-    #     while(x[i][j]==''):
-    #         if(rows-i>=space):
-    #             while(space>0):
-    #                 x[i][j]=ch
-    #                 space-=1
-    #                 i+=1
-    #         else:
-    #             print("wait till trafic moves")
+        if(rows-i1>=space):
+            i=i1
+            while(space>0):
+                x[i][j]=ch
+                space-=1
+                i+=1
+        else:
+                print("wait till trafic moves")
             
-
     elif(dir=='S'):
+        i=0
         j=1
-    #     flag=2
-    #     while(x[i][j]==''):
-    #         if(rows-i>=space):
-    #             while(space>0):
-    #                 x[i][j]=ch
-    #                 space-=1
-    #                 i+=1
-    #         else:
-    #             j=flag%3
-    #             if(j==0):
-    #                 print("wait till trafic moves")
-    #             flag+=1
+        if(rows-i2>=space and i2<=i3):
+            i=i2
+            while(space>0):
+                x[i][j]=ch
+                space-=1
+                i+=1
+        elif(rows-i3>=space):
+            j=2
+            i=i3
+            while(space>0):
+                x[i][j]=ch
+                space-=1
+                i+=1
+        else:
+                print("wait till trafic moves")
+
     elif(dir=='R'):
+        i=0
         j=2
-    #     flag=3
-    #     while(x[i][j]==''):
-    #         if(rows-i>=space):
-    #             while(space>0):
-    #                 x[i][j]=ch
-    #                 space-=1
-    #                 i+=1
-    #         else:
-    #             j=flag%3
-    #             if(j==0):
-    #                 print("wait till trafic moves")
-    #             flag-=1
-    #             if(flag==-1):
-    #                 flag=2
+        if(rows-i3>=space):
+            i=i3
+            while(space>0):
+                x[i][j]=ch
+                space-=1
+                i+=1
+        else:
+                print("wait till trafic moves")
     
     while(x[i][j]!='' and rows-i>=space):
         i+=1
@@ -220,58 +226,4 @@ def movementLane(arr , rows , j,sp):
                 print("\nTill end the lane moves with the speed of ",speed)
         else:
             i+=1
-
-        
-    # while(i<rows):
-
-    #     if(arr[i][j]=='T'):
-    #         i+=1
-    #         while(i<rows):
-    #             if(arr[i][j]=='c'):
-    #                 print("\nTill ",i-1," the lane moves with the speed of Truck that is 15")
-    #                 break
-    #             i+=1
-    #         if(i==rows):
-    #         	print("\nTill end the lane moves with the speed of Truck that is 15")
-        
-    #     elif(arr[i][j]=='B' or arr[i][j]=='E'):
-    #         pos = i
-    #         i+=1
-    #         while(i<rows):
-    #             if(arr[i][j]=='c' or arr[i][j] == 'T'):
-    #                 if(arr[pos][j]=='B'):
-    #                     print("\nTill ",i-1," the lane moves with the speed of Bus that is 20")
-    #                 else:
-    #                      print("\nTill ",i-1," the lane moves with the speed of E-rickshaw that is 20")
-    #                 break
-    #             i+=1
-    #         if(i==rows):
-    #         	print("\nTill end the lane moves with the speed of Bus/E-rickshaw that is 20")
             
-    #     elif(arr[i][j]=='C'):
-    #         i+=1
-    #         while(i<rows):
-    #             if(arr[i][j]!='C' and arr[i][j]!='b'):
-    #                 print("\nTill ",i-1," the lane moves with the speed of Car that is 30")
-    #                 break
-    #             i+=1
-    #         if(i==rows):
-    #         	print("\nTill end the lane moves with the speed of Car that is 30")
-        
-    #     elif(arr[i][j]=='b'):
-    #         i+=1
-    #         while(i<rows):
-    #             if(arr[i][j]!='b'):
-    #                 print("\nTill ",i-1," the lane moves with the speed of Bike that is 35")
-    #                 break
-    #             i+=1
-    #         if(i==rows):
-    #         	print("\nTill end the lane moves with the speed of bike that is 35")
-        
-    #     elif(arr[i][j]=='c'):
-    #         i=rows
-    #         print("\nTill the end the lane moves with the speed of a cycle that is 10")
-            
-    
-    #     else:
-    #         i+=1

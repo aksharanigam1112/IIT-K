@@ -1,5 +1,6 @@
 import numpy as np
 from Movement import movementLane
+
 class Signal:
     
     direction = "clockwise"
@@ -15,31 +16,7 @@ class Signal:
     def lightGreen(self,j , r):
         
         i=1
-        # while(i<3):
-        #     # movementLane(r[j].x , r , i )
-        #     i+=1
-    # def speed(x):
-    #     i=0
-    #     j=0
-    #     speedmat=np.array(25,3)
-    #     while(i<25):
-    #         while(j<3):
-    #             ch=x[i][j]
-    #             if(ch=='T1'):
-    #                 speedmat[i][j]=15
-    #             elif(ch=='T31'):
-    #                 speedmat[i][j]=15
-    #             elif(ch=='T32'):
-    #                 speedmat[i][j]=10
-    #             elif(ch=='T21'):
-    #                 speedmat[i][j]=20
-    #             elif(ch=='T22'):
-    #                 speedmat[i][j]=10
-    #             elif(ch=='T32'):
-    #                 speedmat[i][j]=10
-    #             j+=1
-    #         i+=1
-
+        
 
 def mainSiganl(p):
     s =[]
