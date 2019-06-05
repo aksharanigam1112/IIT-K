@@ -1,7 +1,8 @@
 import numpy as np
 import math
 import random
-from Movement import arange, movementLeft, movementRight, movementStraight , movementLane
+from Signal import mainSiganl 
+from movement import arange, movementLeft, movementRight, movementStraight , movementLane
 
 SIZE = 75
 
@@ -238,6 +239,7 @@ def main():
         i+=1
     
     i=0
+    
     while(i<4):
 
         print("\n\n\t\tDetails for road ",i+1," are:- ")
@@ -250,7 +252,7 @@ def main():
     
     print("\nEnter the total no. of psuedo-lanes (not more than 3):- ")
     l = int(input())
-    
+    # mainSiganl(r
     i=0
     while(i<4):
         
@@ -352,5 +354,7 @@ def main():
             movementLane(r[i].x,rows ,j)
             j+=1
         i+=1
+    
+    mainSiganl(r)
 
 main()
