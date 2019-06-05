@@ -1,6 +1,6 @@
 # from Traffic import *
 import numpy as np
-from movement import movementLane
+from Movement import movementLane
 class Signal:
     
     direction = "clockwise"
