@@ -5,7 +5,7 @@ class Signal:
     
     direction = "clockwise"
     light  = np.chararray((4),unicode=True)
-
+    
     def __init__(self,colour):
         self.dur = 60
         i=0
