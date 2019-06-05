@@ -2,7 +2,7 @@ import numpy as np
 import math
 import random
 from Signal import mainSiganl 
-from movement import arange, movementLeft, movementRight, movementStraight , movementLane
+from Movement import arange, movementLeft, movementRight, movementStraight , movementLane
 
 SIZE = 75
 
