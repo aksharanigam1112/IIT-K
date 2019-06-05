@@ -76,60 +76,88 @@ def movementStraight():
 def movementLane(arr , rows , j):
 
     i=0
+    speed =0
     while(i<rows):
-        if(arr[i][j]=='C2' or arr[i][j]=='T22' or arr[i][j]=='T32'):
+
+        #For Cycle , Loaded Tanker & Loaded Troller
+
+        if(arr[i][j]=='C2' or arr[i][j]=='T22' or arr[i][j]=='T32'):     
             i=rows
-            print("\nTill the end the lane moves with the speed of 10")
+            speed =10
+            print("\nTill the end the lane moves with the speed of ",speed)
         
-        elif(arr[i][j]=='T31' or arr[i][j]=='T1'):
+        #For Truck & Unloaded Troller
+
+        elif (arr[i][j]=='T1' or arr[i][j]=='T31'):
             i+=1
             while(i<rows):
                 if(arr[i][j]=='C2' or arr[i][j]=='T22' or arr[i][j]=='T32'):
-                    print("\nTill ",i-1," the lane moves with the speed of 15")
+                    speed = 15
+                    print("\nTill ",i-1," the lane moves with the speed of ",speed)
                     break
                 i+=1
             if(i==rows):
-            	print("\nTill end the lane moves with the speed of 15")
+                speed = 15
+            	print("\nTill end the lane moves with the speed of ",speed)
         
+        #For Bus , E-rickshaw & Loaded Tanker
+
         elif(arr[i][j]=='B1' or arr[i][j]=='E' or arr[i][j]=='T21'):
             i+=1
             while(i<rows):
                 if(arr[i][j]=='C2' or arr[i][j]=='T22' or arr[i][j]=='T32' or arr[i][j]=='C2' or arr[i][j]=='T22' or arr[i][j]=='T32'):
-                    print("\nTill ",i-1," the lane moves with the speed of 20")
+                    speed = 20
+                    print("\nTill ",i-1," the lane moves with the speed of ",speed)
                     break
                 i+=1
             if(i==rows):
-            	print("\nTill end the lane moves with the speed of 20")
+                speed = 20
+            	print("\nTill end the lane moves with the speed of ",speed)
+        
+        #For Tempo
+
         elif(arr[i][j]=='T4'):
             i+=1
             while(i<rows):
                 if(arr[i][j]=='C2' or arr[i][j]=='T22' or arr[i][j]=='T32' or arr[i][j]=='C2' or arr[i][j]=='T22' or arr[i][j]=='T32' or arr[i][j]=='B1' or arr[i][j]=='E' or arr[i][j]=='T21'):
-                    print("\nTill ",i-1," the lane moves with the speed of 25")
+                    speed = 25
+                    print("\nTill ",i-1," the lane moves with the speed of ",speed)
                     break
                 i+=1
             if(i==rows):
-            	print("\nTill end the lane moves with the speed of 25")
+                speed = 25
+            	print("\nTill end the lane moves with the speed of ",speed)
+        
+        #For Car
+
         elif(arr[i][j]=='C1'):
             i+=1
             while(i<rows):
                 if(arr[i][j]=='C2' or arr[i][j]=='T22' or arr[i][j]=='T32' or arr[i][j]=='C2' or arr[i][j]=='T22' or arr[i][j]=='T32' or arr[i][j]=='B1' or arr[i][j]=='E' or arr[i][j]=='T21' or arr[i][j]=='T4'):
-                    print("\nTill ",i-1," the lane moves with the speed of 30")
+                    speed = 30
+                    print("\nTill ",i-1," the lane moves with the speed of ",speed)
                     break
                 i+=1
             if(i==rows):
-            	print("\nTill end the lane moves with the speed of 30")
+                speed = 30
+            	print("\nTill end the lane moves with the speed of ",speed)
+        
+        #For Bike
+        
         elif(arr[i][j]=='B2'):
             i+=1
             while(i<rows):
                 if(arr[i][j]=='C2' or arr[i][j]=='T22' or arr[i][j]=='T32' or arr[i][j]=='C2' or arr[i][j]=='T22' or arr[i][j]=='T32' or arr[i][j]=='B1' or arr[i][j]=='E' or arr[i][j]=='T21' or arr[i][j]=='T4' or arr[i][j]=='B2'):
-                    print("\nTill ",i-1," the lane moves with the speed of 35")
+                    speed = 35
+                    print("\nTill ",i-1," the lane moves with the speed of ",speed)
                     break
                 i+=1
             if(i==rows):
-            	print("\nTill end the lane moves with the speed of 35")
+                speed = 35
+            	print("\nTill end the lane moves with the speed of ",speed)
         else:
             i+=1
-        
+
     # while(i<rows):
 
     #     if(arr[i][j]=='T'):
