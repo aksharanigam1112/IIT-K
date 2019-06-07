@@ -18,6 +18,7 @@ class Signal:
         i=0
         time =self.dur*4
         j=0
+        time2=0
         scaling=10
         while(k<25 and r[i].x[k][j]!='' and time>0 and r[i].vehicles>=1):
 
