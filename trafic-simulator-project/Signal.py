@@ -18,9 +18,10 @@ class Signal:
         i=0
         time =self.dur*4
         j=0
+        scaling=10
         while(k<25 and r[i].x[k][j]!='' and time>0 and r[i].vehicles>=1):
 
-            time -= int(math.ceil(100/r[i].sp[k][j]))
+            # time -= int(math.ceil(100/r[i].sp[k][j]))
             count+=1
 
             if(r[i].x[k][j]=='T1'or r[i].x[k][j]=='B1'):
@@ -57,6 +58,9 @@ class Signal:
                     r[i].x[n][j] = ''
                     n+=1
                 k+=1
+            time1= int(math.ceil(k*scaling/r[i].sp[k-1][j]))
+            time2+=time1-time2
+            time-=time2
             r[m].sp=np.zeros((25,3))
         while(i<25 and arr[i][j]==''):
             i+=1
@@ -122,14 +126,16 @@ class Signal:
 
     def lightGreen(self,i ,r):
         j=1
+        scaling=10
         while(j<3):
 
             count=0
             k=0
+            time2=0
             time =self.dur
             while(k<25 and r[i].x[k][j]!='' and time>0 and r[i].vehicles>=1):
 
-                time -= int(math.ceil(100/r[i].sp[k][j]))
+                # time -= int(math.ceil(100/r[i].sp[k][j]))
                 count+=1
 
                 if(r[i].x[k][j]=='T1'or r[i].x[k][j]=='B1'):
@@ -166,6 +172,9 @@ class Signal:
                         r[i].x[n][j] = ''
                         n+=1
                     k+=1
+                time1= int(math.ceil(k*scaling/r[i].sp[k-1][j]))
+                time2+=time1-time2
+                time-=time2
                     
             print("\nTime taken by the lane ",j," is ",(self.dur-time))  
             print("\nTotal Vehicles that crossed the round about from this lane ",count)                            
