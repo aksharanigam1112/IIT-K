@@ -6,7 +6,7 @@ class Signal:
     
     def __init__(self,colour):
         self.light  = np.chararray((4),unicode=True)
-        self.dur = 30
+        self.dur = 10
         i=0
         while(i<4):
             self.light[i] = colour[i]
@@ -59,10 +59,13 @@ class Signal:
                     r[i].x[n][j] = ''
                     n+=1
                 k+=1
-            time1= int(math.ceil(k*scaling/r[i].sp[k-1][j]))
-            time2+=time1-time2
-            time-=time2
-            r[m].sp=np.zeros((25,3))
+            if(r[i].sp[k-1][j]!=0):
+                time1= int(math.ceil(k*scaling/r[i].sp[k-1][j]))
+                time2+=time1-time2
+                time-=time2
+            else:
+                break
+        r[m].sp=np.zeros((25,3))
         while(i<25 and arr[i][j]==''):
             i+=1
 
