@@ -295,9 +295,9 @@ def main():
                 arange("B1",5,r[i].x,rows,l,dir)
             
             elif(j==6):
-                v.append(vehicle("C1",3))
+                v.append(vehicle("C1",2))
                 dir=v[k].direction()
-                arange('C1',3,r[i].x,rows,l,dir)
+                arange('C1',2,r[i].x,rows,l,dir)
             
             elif(j==7):
                 v.append(vehicle("T4",2))

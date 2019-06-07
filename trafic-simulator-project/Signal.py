@@ -6,7 +6,7 @@ class Signal:
     
     def __init__(self,colour):
         self.light  = np.chararray((4),unicode=True)
-        self.dur = 30
+        self.dur = 20
         i=0
         while(i<4):
             self.light[i] = colour[i]
@@ -20,7 +20,7 @@ class Signal:
             while(i<25 and arr[i][j]==''):
                 i+=1
 
-            k = i            
+            k = i
             i=0
 
             while(k<25 and arr[k][j]!=''):
@@ -47,35 +47,35 @@ class Signal:
 
                 if(r[i].x[k][j]=='T1'or r[i].x[k][j]=='B1'):
                     n = k
-                    while(n<=(k+5)):
+                    while(n<(k+5)):
                         r[i].x[n][j] = ''
                         n+=1
                     k+=5
 
                 elif(r[i].x[k][j]=='T21'or r[i].x[k][j]=='T22'):
                     n = k
-                    while(n<=(k+7)):
+                    while(n<(k+7)):
                         r[i].x[n][j] = ''
                         n+=1
                     k+=7
 
                 elif(r[i].x[k][j]=='T31'or r[i].x[k][j]=='T32'):
                     n = k
-                    while(n<=(k+6)):
+                    while(n<(k+6)):
                         r[i].x[n][j] = ''
                         n+=1
                     k+=6
                             
                 elif(r[i].x[k][j]=='C1' or r[i].x[k][j]=='E' or r[i].x[k][j]=='T4'):
                     n = k
-                    while(n<=(k+2)):
+                    while(n<(k+2)):
                         r[i].x[n][j] = ''
                         n+=1
                     k+=2
                                           
                 elif(r[i].x[k][j]=='B2' or r[i].x[k][j]=='C2'):
                     n = k
-                    while(n<=(k+1)):
+                    while(n<(k+1)):
                         r[i].x[n][j] = ''
                         n+=1
                     k+=1
@@ -84,9 +84,10 @@ class Signal:
             print("\nTotal Vehicles that crossed the round about from this lane ",count)                            
             r[i].vehicles-=count
             j+=1
-
+            print("count=",count)
         print("\n\t\tNew Arrangement for road ",(i+1),"\n")
         r[i].x=self.moveForward(r[i].x)
+        
         
         
         count=0
@@ -240,19 +241,19 @@ def mainSignal(p):
         print("\n\tSignal was as follows :-",s[i].light)
         i+=1
 
-    print("\n\t\tWhen Signal is given Anticlockwise")
-    i=3
-    while(i>=0):                         # For Anti-Clockwise Signal behaviour
-        print("\n\n\t\tSignal is Green for road ",(i+1),"\n")
-        print(p[i].x,"\n")
-        print(p[i].sp,"\n")
-        s[i].lightGreen(i,p)
-        s[i].light[i] = 'G'
-        x = (i-1)%4
-        s[i].light[x]='O'
-        x = (i-2)%4
-        s[i].light[x] = 'R'
-        x = (i-3)%4
-        s[i].light[x] = 'R'
-        print("\n\tSignal was as follows :-",s[i].light)
-        i-=1
+    # print("\n\t\tWhen Signal is given Anticlockwise")
+    # i=3
+    # while(i>=0):                         # For Anti-Clockwise Signal behaviour
+    #     print("\n\n\t\tSignal is Green for road ",(i+1),"\n")
+    #     print(p[i].x,"\n")
+    #     print(p[i].sp,"\n")
+    #     s[i].lightGreen(i,p)
+    #     s[i].light[i] = 'G'
+    #     x = (i-1)%4
+    #     s[i].light[x]='O'
+    #     x = (i-2)%4
+    #     s[i].light[x] = 'R'
+    #     x = (i-3)%4
+    #     s[i].light[x] = 'R'
+    #     print("\n\tSignal was as follows :-",s[i].light)
+    #     i-=1
