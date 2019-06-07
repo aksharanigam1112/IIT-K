@@ -6,11 +6,82 @@ class Signal:
     
     def __init__(self,colour):
         self.light  = np.chararray((4),unicode=True)
-        self.dur = 20
+        self.dur = 30
         i=0
         while(i<4):
             self.light[i] = colour[i]
             i+=1
+    
+    def MoveLeft(self,arr,sp,m,r):
+        count=0
+        k=0
+        i=0
+        time =self.dur*4
+        j=0
+        while(k<25 and r[i].x[k][j]!='' and time>0 and r[i].vehicles>=1):
+
+            time -= int(math.ceil(100/r[i].sp[k][j]))
+            count+=1
+
+            if(r[i].x[k][j]=='T1'or r[i].x[k][j]=='B1'):
+                n = k
+                while(n<(k+5)):
+                    r[i].x[n][j] = ''
+                    n+=1
+                k+=5
+
+            elif(r[i].x[k][j]=='T21'or r[i].x[k][j]=='T22'):
+                n = k
+                while(n<(k+7)):
+                    r[i].x[n][j] = ''
+                    n+=1
+                k+=7
+
+            elif(r[i].x[k][j]=='T31'or r[i].x[k][j]=='T32'):
+                n = k
+                while(n<(k+6)):
+                    r[i].x[n][j] = ''
+                    n+=1
+                k+=6
+                            
+            elif(r[i].x[k][j]=='C1' or r[i].x[k][j]=='E' or r[i].x[k][j]=='T4'):
+                n = k
+                while(n<(k+2)):
+                    r[i].x[n][j] = ''
+                    n+=1
+                k+=2
+                                          
+            elif(r[i].x[k][j]=='B2' or r[i].x[k][j]=='C2'):
+                n = k
+                while(n<(k+1)):
+                    r[i].x[n][j] = ''
+                    n+=1
+                k+=1
+            r[m].sp=np.zeros((25,3))
+        while(i<25 and arr[i][j]==''):
+            i+=1
+
+        k = i
+        i=0
+
+        while(k<25 and arr[k][j]!=''):
+            arr[i][j] = arr[k][j]
+            arr[k][j]=''
+            k+=1
+            i+=1
+            
+        while(i<25 and arr[i][j]==''):
+            i+=1
+        k=i
+        while(k<25 and arr[k][j]!=''):
+            arr[i][j] = arr[k][j]
+            arr[k][j]=''
+            k+=1
+            i+=1
+        r[m].sp=np.zeros((25,3))
+        for j in range(0,3):
+            movementLane(self.arr,25,j,r[m].sp)
+        print(r[m].sp)
 
     def moveForward(self,arr,m,r):
         self.arr = arr
@@ -152,7 +223,13 @@ def mainSignal(p):
         s[i].light[x] = 'R'
         print("\n\tSignal was as follows :-",s[i].light)
         i+=1
-
+    print("left lane movement")
+    i=0
+    while(i<4):
+        print("for road ",i+1)
+        s[i].MoveLeft(p[i].x,p[i].sp,i,p)
+        print(p[i].x)
+        i+=1
     # print("\n\t\tWhen Signal is given Anticlockwise")
     # i=3
     # while(i>=0):                         # For Anti-Clockwise Signal behaviour
