@@ -1,12 +1,204 @@
 [
 {
+  "commit": "036c9596f501c4533426a8240046ead02b8a87e6",
+  "abbreviated_commit": "036c959",
+  "tree": "a1463372894aa615d1d9f0a251cb1f28a8d8598f",
+  "abbreviated_tree": "a146337",
+  "parent": "1d23bdd6956b2d88b9a21ba61e75de8fe131f6cf",
+  "abbreviated_parent": "1d23bdd",
+  "refs": "HEAD -> master, origin/master, origin/HEAD",
+  "encoding": "",
+  "subject": "update",
+  "sanitized_subject_line": "update",
+  "body": "",
+  "commit_notes": "",
+  "author": {
+    "name": "ayushnagar123",
+    "email": "an431999@gmail.com",
+    "date": "Fri, 7 Jun 2019 19:16:47 +0530"
+  },
+  "commiter": {
+    "name": "ayushnagar123",
+    "email": "an431999@gmail.com",
+    "date": "Fri, 7 Jun 2019 19:16:47 +0530"
+  }
+},
+{
+  "commit": "a4389efa047c83702c2428c3549f23fdd7a491ee",
+  "abbreviated_commit": "a4389ef",
+  "tree": "f4417f86dc2cbfd2352f20d65a076eaafa717a49",
+  "abbreviated_tree": "f4417f8",
+  "parent": "b2c29223ffae86842a164d6c35284ce6ae7b1a22",
+  "abbreviated_parent": "b2c2922",
+  "refs": "",
+  "encoding": "",
+  "subject": "update",
+  "sanitized_subject_line": "update",
+  "body": "",
+  "commit_notes": "",
+  "author": {
+    "name": "ayushnagar123",
+    "email": "an431999@gmail.com",
+    "date": "Fri, 7 Jun 2019 19:10:35 +0530"
+  },
+  "commiter": {
+    "name": "ayushnagar123",
+    "email": "an431999@gmail.com",
+    "date": "Fri, 7 Jun 2019 19:10:35 +0530"
+  }
+},
+{
+  "commit": "4d74e7a287c5b6f44bc20c3be28a4514b540c8b8",
+  "abbreviated_commit": "4d74e7a",
+  "tree": "2a328459f07e2559e7b6acfdad5f506a708f37bf",
+  "abbreviated_tree": "2a32845",
+  "parent": "b2c29223ffae86842a164d6c35284ce6ae7b1a22",
+  "abbreviated_parent": "b2c2922",
+  "refs": "",
+  "encoding": "",
+  "subject": "Update Signal.py",
+  "sanitized_subject_line": "Update-Signal.py",
+  "body": "",
+  "commit_notes": "",
+  "author": {
+    "name": "Akshara Nigam",
+    "email": "32769439+aksharanigam1112@users.noreply.github.com",
+    "date": "Fri, 7 Jun 2019 15:56:58 +0530"
+  },
+  "commiter": {
+    "name": "GitHub",
+    "email": "noreply@github.com",
+    "date": "Fri, 7 Jun 2019 15:56:58 +0530"
+  }
+},
+{
+  "commit": "b2c29223ffae86842a164d6c35284ce6ae7b1a22",
+  "abbreviated_commit": "b2c2922",
+  "tree": "507fb68839dd1afb45f70a2811982ebb95dcd69e",
+  "abbreviated_tree": "507fb68",
+  "parent": "3d186adf52b26ffac5e055869388cdeda08079a8",
+  "abbreviated_parent": "3d186ad",
+  "refs": "",
+  "encoding": "",
+  "subject": "Update Signal.py",
+  "sanitized_subject_line": "Update-Signal.py",
+  "body": "",
+  "commit_notes": "",
+  "author": {
+    "name": "Akshara Nigam",
+    "email": "32769439+aksharanigam1112@users.noreply.github.com",
+    "date": "Fri, 7 Jun 2019 15:53:54 +0530"
+  },
+  "commiter": {
+    "name": "GitHub",
+    "email": "noreply@github.com",
+    "date": "Fri, 7 Jun 2019 15:53:54 +0530"
+  }
+},
+{
+  "commit": "3d186adf52b26ffac5e055869388cdeda08079a8",
+  "abbreviated_commit": "3d186ad",
+  "tree": "bcae41f1270c69874c3ae4a472afe56b69e9c121",
+  "abbreviated_tree": "bcae41f",
+  "parent": "a069f692acd00f5ece8a7bd480c94c3954bca1e2",
+  "abbreviated_parent": "a069f69",
+  "refs": "",
+  "encoding": "",
+  "subject": "Update Signal.py",
+  "sanitized_subject_line": "Update-Signal.py",
+  "body": "",
+  "commit_notes": "",
+  "author": {
+    "name": "Akshara Nigam",
+    "email": "32769439+aksharanigam1112@users.noreply.github.com",
+    "date": "Fri, 7 Jun 2019 15:42:12 +0530"
+  },
+  "commiter": {
+    "name": "GitHub",
+    "email": "noreply@github.com",
+    "date": "Fri, 7 Jun 2019 15:42:12 +0530"
+  }
+},
+{
+  "commit": "a069f692acd00f5ece8a7bd480c94c3954bca1e2",
+  "abbreviated_commit": "a069f69",
+  "tree": "557ef62cc8f40b7ea3ebea884be5f27acc22753f",
+  "abbreviated_tree": "557ef62",
+  "parent": "ff7c7af3670aecc7ca658ae8da96ca590964af49",
+  "abbreviated_parent": "ff7c7af",
+  "refs": "",
+  "encoding": "",
+  "subject": "Update Traffic.py",
+  "sanitized_subject_line": "Update-Traffic.py",
+  "body": "",
+  "commit_notes": "",
+  "author": {
+    "name": "Akshara Nigam",
+    "email": "32769439+aksharanigam1112@users.noreply.github.com",
+    "date": "Fri, 7 Jun 2019 11:22:06 +0530"
+  },
+  "commiter": {
+    "name": "GitHub",
+    "email": "noreply@github.com",
+    "date": "Fri, 7 Jun 2019 11:22:06 +0530"
+  }
+},
+{
+  "commit": "ff7c7af3670aecc7ca658ae8da96ca590964af49",
+  "abbreviated_commit": "ff7c7af",
+  "tree": "d7dead0bb54a38037dcc1e2d62787d37a8af0b66",
+  "abbreviated_tree": "d7dead0",
+  "parent": "0f125a68f47d743c7f6c164d5e5bdf6f4c1b50ea",
+  "abbreviated_parent": "0f125a6",
+  "refs": "",
+  "encoding": "",
+  "subject": "Update Signal.py",
+  "sanitized_subject_line": "Update-Signal.py",
+  "body": "",
+  "commit_notes": "",
+  "author": {
+    "name": "Akshara Nigam",
+    "email": "32769439+aksharanigam1112@users.noreply.github.com",
+    "date": "Fri, 7 Jun 2019 10:37:12 +0530"
+  },
+  "commiter": {
+    "name": "GitHub",
+    "email": "noreply@github.com",
+    "date": "Fri, 7 Jun 2019 10:37:12 +0530"
+  }
+},
+{
+  "commit": "0f125a68f47d743c7f6c164d5e5bdf6f4c1b50ea",
+  "abbreviated_commit": "0f125a6",
+  "tree": "e84b9f6c205c823f359a7f77a77c201570e0885d",
+  "abbreviated_tree": "e84b9f6",
+  "parent": "e7020580305c6f8da3bd842d6bae06ce22dc86d0",
+  "abbreviated_parent": "e702058",
+  "refs": "",
+  "encoding": "",
+  "subject": "update",
+  "sanitized_subject_line": "update",
+  "body": "",
+  "commit_notes": "",
+  "author": {
+    "name": "ayushnagar123",
+    "email": "an431999@gmail.com",
+    "date": "Thu, 6 Jun 2019 01:47:53 +0530"
+  },
+  "commiter": {
+    "name": "ayushnagar123",
+    "email": "an431999@gmail.com",
+    "date": "Thu, 6 Jun 2019 01:47:53 +0530"
+  }
+},
+{
   "commit": "e7020580305c6f8da3bd842d6bae06ce22dc86d0",
   "abbreviated_commit": "e702058",
   "tree": "7763afd98397b1bfc0fb7c24eeb66290adbae48d",
   "abbreviated_tree": "7763afd",
   "parent": "ea25b2dbae563874b2c5f72358bf8a60ffea4d87",
   "abbreviated_parent": "ea25b2d",
-  "refs": "HEAD -> master, origin/master, origin/HEAD",
+  "refs": "",
   "encoding": "",
   "subject": "arrange function updated",
   "sanitized_subject_line": "arrange-function-updated",
