@@ -1,7 +1,7 @@
 import numpy as np
 import math
 import random
-from Signal import mainSiganl 
+from Signal import mainSignal 
 from Movement import arange, movementLeft, movementRight, movementStraight , movementLane
 
 SIZE = 75
@@ -357,5 +357,5 @@ def main():
             movementLane(r[i].x,rows ,j,r[i].sp)
             j+=1
         i+=1
-    mainSiganl(r)
+    mainSignal(r)
 main()
