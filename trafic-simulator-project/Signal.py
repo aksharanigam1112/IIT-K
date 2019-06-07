@@ -11,8 +11,8 @@ class Signal:
         while(i<4):
             self.light[i] = colour[i]
             i+=1
-    
-    def moveForward(self,arr):
+
+    def moveForward(self,arr,m,r):
         self.arr = arr
         i=0
         j=1
@@ -28,9 +28,25 @@ class Signal:
                 arr[k][j]=''
                 k+=1
                 i+=1
+            
+            while(i<25 and arr[i][j]==''):
+                i+=1
+            k=i
+            while(k<25 and arr[k][j]!=''):
+                arr[i][j] = arr[k][j]
+                arr[k][j]=''
+                k+=1
+                i+=1
+
+            k = i
+            i=0
 
             j+=1
         print(arr)
+        r[m].sp=np.zeros((25,3))
+        for j in range(0,3):
+            movementLane(self.arr,25,j,r[m].sp)
+        print(r[m].sp)
         return arr
 
     def lightGreen(self,i ,r):
@@ -86,7 +102,7 @@ class Signal:
             j+=1
             print("count=",count)
         print("\n\t\tNew Arrangement for road ",(i+1),"\n")
-        r[i].x=self.moveForward(r[i].x)
+        r[i].x=self.moveForward(r[i].x,i,r)
         
         
         
