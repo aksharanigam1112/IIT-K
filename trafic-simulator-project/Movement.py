@@ -133,7 +133,7 @@ def movementLane(arr , rows , j,sp):
 
         #For Cycle , Loaded Tanker & Loaded Troller
 
-        if(arr[i][j]=='C2' or arr[i][j]=='T22' or arr[i][j]=='T32'):     
+        if(arr[i][j]=='C2' or arr[i][j]=='T22' or arr[i][j]=='T32' or arr[i][j]=='C2C2C2' or arr[i][j]=='B2C2' or arr[i][j]=='C2B2'):     
             while(i<rows and arr[i][j]!=''):
                 sp[i][j]=10
                 i+=1
@@ -210,7 +210,7 @@ def movementLane(arr , rows , j,sp):
         
         #For Bike
         
-        elif(arr[i][j]=='B2'):
+        elif(arr[i][j]=='B2' or arr[i][j]=='B2B2'):
             sp[i][j]=35
             i+=1
             while(i<rows):
