@@ -53,7 +53,7 @@ class Signal:
                     n+=1
                 k+=2
                                           
-            elif(r[i].x[k][j]=='B2' or r[i].x[k][j]=='C2'):
+            elif(r[i].x[k][j]=='B2' or r[i].x[k][j]=='C2' or r[i].x[i][j]=='B2B2' or r[i].x[i][j]=='C2C2C2' or r[i][j]=='B2C2' or r[i][j]=='C2B2'):
                 n = k
                 while(n<(k+1)):
                     r[i].x[n][j] = ''
@@ -119,8 +119,8 @@ class Signal:
 
             k = i
             i=0
-
             j+=1
+
         print(arr)
         r[m].sp=np.zeros((25,3))
         for j in range(0,3):
@@ -138,8 +138,6 @@ class Signal:
             time2=0
             time =self.dur
             while(k<25 and r[i].x[k][j]!='' and time>0 and r[i].vehicles>=1):
-
-                # time -= int(math.ceil(100/r[i].sp[k][j]))
                 count+=1
 
                 if(r[i].x[k][j]=='T1'or r[i].x[k][j]=='B1'):
@@ -151,17 +149,17 @@ class Signal:
 
                 elif(r[i].x[k][j]=='T21'or r[i].x[k][j]=='T22'):
                     n = k
-                    while(n<(k+7)):
-                        r[i].x[n][j] = ''
-                        n+=1
-                    k+=7
-
-                elif(r[i].x[k][j]=='T31'or r[i].x[k][j]=='T32'):
-                    n = k
                     while(n<(k+6)):
                         r[i].x[n][j] = ''
                         n+=1
                     k+=6
+
+                elif(r[i].x[k][j]=='T31'or r[i].x[k][j]=='T32'):
+                    n = k
+                    while(n<(k+7)):
+                        r[i].x[n][j] = ''
+                        n+=1
+                    k+=7
                             
                 elif(r[i].x[k][j]=='C1' or r[i].x[k][j]=='E' or r[i].x[k][j]=='T4'):
                     n = k
@@ -170,13 +168,17 @@ class Signal:
                         n+=1
                     k+=2
                                           
-                elif(r[i].x[k][j]=='B2' or r[i].x[k][j]=='C2'):
+                elif(r[i].x[k][j]=='B2' or r[i].x[k][j]=='C2' or r[i].x[k][j]=='C2C2' or r[i].x[k][j]=='C2C2C2' or r[i].x[k][j]=='C2B2' or r[i].x[k][j]=='B2C2' or r[i].x[k][j]=='B2B2'):
                     n = k
                     while(n<(k+1)):
                         r[i].x[n][j] = ''
                         n+=1
                     k+=1
-                time1= int(math.ceil(k*scaling/r[i].sp[k-1][j]))
+
+                if(r[i].sp[k-1][j]!=0):
+                    time1= int(math.ceil(k*scaling/r[i].sp[k-1][j]))
+                else:
+                    time1 = time - time2 
                 time2+=time1-time2
                 time-=time2
                     
@@ -184,29 +186,40 @@ class Signal:
             print("\nTotal Vehicles that crossed the round about from this lane ",count)                            
             r[i].vehicles-=count
             j+=1
-            print("\nCount=",count)
+            
         print("\n\t\tNew Arrangement for road ",(i+1),"\n")
         r[i].x=self.moveForward(r[i].x,i,r)
         
         count=0
         k=0
         while(k<25 and r[i].x[k][0]!='' and r[i].vehicles>=1):
+            
             count+=1
+
             if(r[i].x[k][0]=='T1'or r[i].x[k][0]=='B1'):
                 k+=5
 
             elif(r[i].x[k][0]=='T21'or r[i].x[k][0]=='T22'):
-                k+=7
+               k+=6
 
             elif(r[i].x[k][0]=='T31'or r[i].x[k][0]=='T32'):
-                k+=6
+               k+=7
                             
             elif(r[i].x[k][0]=='C1' or r[i].x[k][0]=='E' or r[i].x[k][0]=='T4'):
                 k+=2
                                           
             elif(r[i].x[k][0]=='B2' or r[i].x[k][0]=='C2'):
-                k+=1
+               k+=1
 
+            elif(r[i].x[k][0]=='C2C2C2'):
+                k+=1
+                count+=2
+                
+            elif(r[i].x[k][0]=='C2B2' or r[i].x[k][0]=='B2C2' or r[i].x[k][0]=='B2B2' or r[i].x[k][j]=='C2C2'):
+                k+=1
+                count+=1
+        
+        print("\n\tTest 9")        
         r[i].vehicles-=count
         print("\nVehicles remaining for this road:- ",r[i].vehicles)
         
