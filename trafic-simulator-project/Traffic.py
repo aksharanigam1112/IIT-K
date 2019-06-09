@@ -1,7 +1,7 @@
 import numpy as np
 import math
 import random
-from Signal import mainSignal 
+from Signal import mainSignal
 from Movement import arange, movementLeft, movementRight, movementStraight , movementLane
 
 SIZE = 75
@@ -19,10 +19,9 @@ class vehicle:
 
 class road:
 
-    
     def __init__(self, space, con,vehicles, data):
 
-        self.x = np.chararray((25,3),itemsize = 3 , unicode=True)
+        self.x = np.chararray((25,3),itemsize = 6 , unicode=True)
         self.sp=np.zeros((25,3))
 
 
@@ -124,9 +123,44 @@ class road:
         self.vehicles = self.truck[2]+self.ltroller[2]+self.utroller[2]+self.ltanker[2]+self.utanker[2]+self.bus[2]+self.car[2]+self.tempo[2]+self.erick[2]+self.bike[2]+self.cycle[2]
         print("\nTotal Vehicles = ", self.vehicles)
         print("\nCongestion = ", self.con)
-        print(self.unplaced)
-        
+        #print(self.unplaced)
 
+    def fillGap(self , arr , i , j):
+        while(i<24 and arr[i+1][j]!=''):
+            arr[i][j] = arr[i+1][j]
+            i+=1
+        arr[i][j]=''
+    
+    def Merge(self):       
+        j=0
+        while(j<3):
+            i=0
+            while(i<25 and self.x[i][j]!=''):
+
+                if(i<24 and self.x[i][j] != '' and self.x[i][j]=='B2' and (self.x[i+1][j] =='B2' or self.x[i+1][j]=='C2')):
+                    self.x[i][j] += self.x[i+1][j]
+                    self.x[i+1][j] = ''
+                    self.fillGap( self.x , i+1 , j ) 
+                    i+=1
+                
+                elif(i<24 and self.x[i][j] != '' and self.x[i][j]=='C2' and (self.x[i+1][j] =='B2' or self.x[i+1][j]=='C2')):
+                    self.x[i][j] += self.x[i+1][j]
+                    self.x[i+1][j] = ''
+                    self.fillGap( self.x , i+1 , j ) 
+                    i+=1
+
+                elif(i<23 and self.x[i][j] != '' and self.x[i][j]=='C2' and self.x[i+1][j]=='C2' and self.x[i+2][j]=='C2'):
+                    self.x[i][j] += self.x[i+1][j] + self.x[i+2][j]
+                    self.x[i+1][j] =''
+                    self.x[i+2][j] =''
+                    self.fillGap(self.x , i+2 , j)
+                    self.fillGap(self.x , i+1 , j)
+                    i+=1 
+
+                else:
+                    i+=1
+            j+=1
+        
 def main():
 
     r = []
@@ -241,17 +275,16 @@ def main():
         r.append(road(space,con,vehicles,data))
         i+=1
     
-    i=0
-    
+    i=0 
     while(i<4):
 
         print("\n\n\t\tDetails for road ",i+1," are:- ")
         r[i].Display()
         i+=1
 
-    print("\n\nEnter source & destination :- ")
-    source = int(input())
-    destination = int(input())
+    # print("\n\nEnter source & destination :- ")
+    # source = int(input())
+    # destination = int(input())
     
     print("\nEnter the total no. of psuedo-lanes (not more than 3):- ")
     l = int(input())
@@ -325,19 +358,22 @@ def main():
             
         print("\n\tArrangement of road ",i+1," is :- ")
         print(r[i].x)
+        r[i].Merge()
+        print("\n\t After Merging Bikes & Cycles :- \n" , r[i].x)
         i+=1
     
-    if((source==1 and destination==2) or (source==2 and destination==3) or (source==3 and destination==4) or (source==4 and destination==2)):
-
-        movementLeft()
     
-    if((source==1 and destination==3) or (source==2 and destination==4) or (source==3 and destination==1) or (source==4 and destination==2)):
+    # if((source==1 and destination==2) or (source==2 and destination==3) or (source==3 and destination==4) or (source==4 and destination==2)):
 
-        movementStraight()
+    #     movementLeft()
     
-    if((source==1 and destination==4) or (source==2 and destination==1) or (source==3 and destination==2) or (source==4 and destination==3)):
+    # if((source==1 and destination==3) or (source==2 and destination==4) or (source==3 and destination==1) or (source==4 and destination==2)):
 
-        movementRight()
+    #     movementStraight()
+    
+    # if((source==1 and destination==4) or (source==2 and destination==1) or (source==3 and destination==2) or (source==4 and destination==3)):
+
+    #     movementRight()
     
     i=0
     while(i<4):
