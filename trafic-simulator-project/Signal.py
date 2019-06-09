@@ -22,7 +22,6 @@ class Signal:
         scaling=10
         while(k<25 and r[i].x[k][j]!='' and time>0 and r[i].vehicles>=1):
 
-            # time -= int(math.ceil(100/r[i].sp[k][j]))
             count+=1
 
             if(r[i].x[k][j]=='T1'or r[i].x[k][j]=='B1'):
@@ -53,18 +52,20 @@ class Signal:
                     n+=1
                 k+=2
                                           
-            elif(r[i].x[k][j]=='B2' or r[i].x[k][j]=='C2' or r[i].x[i][j]=='B2B2' or r[i].x[i][j]=='C2C2C2' or r[i][j]=='B2C2' or r[i][j]=='C2B2'):
+            elif(r[i].x[k][j]=='B2' or r[i].x[k][j]=='C2' or r[i].x[k][j] == 'C2C2' or r[i].x[k][j]=='B2B2' or r[i].x[k][j]=='C2C2C2' or r[i].x[k][j]=='B2C2' or r[i].x[k][j]=='C2B2'):
                 n = k
                 while(n<(k+1)):
                     r[i].x[n][j] = ''
                     n+=1
                 k+=1
+
             if(r[i].sp[k-1][j]!=0):
                 time1= int(math.ceil(k*scaling/r[i].sp[k-1][j]))
-                time2+=time1-time2
-                time-=time2
             else:
-                break
+                time1=time-time2
+            time2+=time1-time2
+            time-=time2
+
         r[m].sp=np.zeros((25,3))
         while(i<25 and arr[i][j]==''):
             i+=1
@@ -89,7 +90,7 @@ class Signal:
         r[m].sp=np.zeros((25,3))
         for j in range(0,3):
             movementLane(self.arr,25,j,r[m].sp)
-        print("\n",r[m].sp)
+        # print("\n",r[m].sp)
 
     def moveForward(self,arr,m,r):
         self.arr = arr
@@ -125,7 +126,7 @@ class Signal:
         r[m].sp=np.zeros((25,3))
         for j in range(0,3):
             movementLane(self.arr,25,j,r[m].sp)
-        print("\n",r[m].sp)
+        # print("\n",r[m].sp)
         return arr
 
     def lightGreen(self,i ,r):
@@ -181,7 +182,8 @@ class Signal:
                     time1 = time - time2 
                 time2+=time1-time2
                 time-=time2
-                    
+                
+                
             print("\nTime taken by the lane ",j," is ",(self.dur-time))  
             print("\nTotal Vehicles that crossed the round about from this lane ",count)                            
             r[i].vehicles-=count
@@ -215,11 +217,10 @@ class Signal:
                 k+=1
                 count+=2
                 
-            elif(r[i].x[k][0]=='C2B2' or r[i].x[k][0]=='B2C2' or r[i].x[k][0]=='B2B2' or r[i].x[k][j]=='C2C2'):
+            elif(r[i].x[k][0]=='C2B2' or r[i].x[k][0]=='B2C2' or r[i].x[k][0]=='B2B2' or r[i].x[k][0]=='C2C2'):
                 k+=1
                 count+=1
-        
-        print("\n\tTest 9")        
+               
         r[i].vehicles-=count
         print("\nVehicles remaining for this road:- ",r[i].vehicles)
         
@@ -236,7 +237,7 @@ def mainSignal(p):
     while(i<4):                         # For Clockwise Signal behaviour
         print("\n\n\t\tSignal is Green for road ",(i+1),"\n")
         print("\n",p[i].x)
-        print("\n",p[i].sp)
+        # print("\n",p[i].sp)
         s[i].lightGreen(i,p)
         s[i].light[i] = 'G'
         x = (i+1)%4
@@ -263,7 +264,7 @@ def mainSignal(p):
     while(i>=0):                         # For Anti-Clockwise Signal behaviour
         print("\n\n\t\tSignal is Green for road ",(i+1),"\n")
         print("\n",p[i].x)
-        print("\n",p[i].sp)
+        # print("\n",p[i].sp)
         s[i].lightGreen(i,p)
         s[i].light[i] = 'G'
         x = (i-1)%4
