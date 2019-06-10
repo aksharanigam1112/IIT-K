@@ -24,6 +24,7 @@ class road:
         self.x = np.chararray((25,3),itemsize = 6 , unicode=True)
         self.sp=np.zeros((25,3))
 
+
         self.space = space
 
         self.truck = [5,15,0,0]
@@ -154,10 +155,12 @@ class road:
                     self.x[i+2][j] =''
                     self.fillGap(self.x , i+2 , j)
                     self.fillGap(self.x , i+1 , j)
-                    i+=1
+                    i+=1 
+
                 else:
                     i+=1
             j+=1
+
         
 def main():
 
@@ -286,7 +289,7 @@ def main():
     
     print("\nEnter the total no. of psuedo-lanes (not more than 3):- ")
     l = int(input())
-
+    # mainSiganl(r
     i=0
     while(i<4):
         
@@ -301,17 +304,17 @@ def main():
                 arange("T1",5,r[i].x,rows,l,dir)
 
             elif(j==1):
-                v.append(vehicle("T31",7))
+                v.append(vehicle("T31",6))
                 dir=v[k].direction()
                 arange("T31",7,r[i].x,rows,l,dir)
             
             elif(j==2):
-                v.append(vehicle("T32",7))
+                v.append(vehicle("T32",6))
                 dir=v[k].direction()
                 arange("T32",7,r[i].x,rows,l,dir)
 
             elif(j==3):
-                v.append(vehicle("T21",6))
+                v.append(vehicle("T21",7))
                 dir=v[k].direction()
                 arange("T21",6,r[i].x,rows,l,dir)
             
