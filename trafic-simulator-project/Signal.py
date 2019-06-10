@@ -18,7 +18,7 @@ class Signal:
         i=0
         time =self.dur*4
         j=0
-        time2=0
+        time2=0  
         scaling=10
         while(k<25 and r[i].x[k][j]!='' and time>0 and r[i].vehicles>=1):
 
@@ -57,6 +57,12 @@ class Signal:
                 while(n<(k+1)):
                     r[i].x[n][j] = ''
                     n+=1
+                                
+                if(r[i].x[k][j]=='C2C2' or r[i].x[k][j]=='C2B2' or r[i].x[k][j]=='B2C2' or r[i].x[k][j]=='B2B2'):
+                    count+=1
+                elif(r[i].x[k][j]=='C2C2C2'):
+                    count+=2
+                
                 k+=1
 
             if(r[i].sp[k-1][j]!=0):
@@ -174,6 +180,10 @@ class Signal:
                     while(n<(k+1)):
                         r[i].x[n][j] = ''
                         n+=1
+                    if(r[i].x[k][j]=='C2C2' or r[i].x[k][j]=='C2B2' or r[i].x[k][j]=='B2C2' or r[i].x[k][j]=='B2B2'):
+                        count+=1
+                    elif(r[i].x[k][j]=='C2C2C2'):
+                        count+=2
                     k+=1
 
                 if(r[i].sp[k-1][j]!=0):
