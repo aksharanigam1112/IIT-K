@@ -128,12 +128,12 @@ def movementLane(arr , rows , j,sp):
 
     i=0
     speed =0
-
+    #print(arr)
     while(i<rows):
 
         #For Cycle , Loaded Tanker & Loaded Troller
 
-        if(arr[i][j]=='C2' or arr[i][j]=='T22' or arr[i][j]=='T32' or arr[i][j]=='C2C2C2' or arr[i][j]=='B2C2' or arr[i][j]=='C2B2' or arr[i][j]=='C2C2'):     
+        if(arr[i][j]=='C2' or arr[i][j]=='T22' or arr[i][j]=='T32' or arr[i][j]=='C2C2' or arr[i][j]=='C2C2C2' or arr[i][j]=='B2C2' or arr[i][j]=='C2B2'):     
             while(i<rows and arr[i][j]!=''):
                 sp[i][j]=10
                 i+=1
@@ -146,7 +146,7 @@ def movementLane(arr , rows , j,sp):
             sp[i][j]=15
             i+=1
             while(i<rows):
-                if(arr[i][j]=='C2' or arr[i][j]=='T22' or arr[i][j]=='T32' or arr[i][j]=='C2C2C2' or arr[i][j]=='C2C2' or arr[i][j]==''):
+                if(arr[i][j]=='C2' or arr[i][j]=='C2C2C2' or arr[i][j]=='B2C2' or arr[i][j]=='C2B2' or arr[i][j]=='C2C2' or arr[i][j]=='T22' or arr[i][j]=='T32' or arr[i][j]==''):
                     speed = 15
                     print("\nTill ",i-1," the lane moves with the speed of ",speed)
                     break
@@ -163,7 +163,7 @@ def movementLane(arr , rows , j,sp):
             sp[i][j]=20
             i+=1
             while(i<rows):
-                if(arr[i][j]=='C2' or arr[i][j]=='T22' or arr[i][j]=='T32' or arr[i][j]=='T1' or arr[i][j]=='T31'  or arr[i][j]==''):
+                if(arr[i][j]=='C2' or arr[i][j]=='C2C2C2' or arr[i][j]=='B2C2' or arr[i][j]=='C2B2' or arr[i][j]=='C2C2' or arr[i][j]=='T22' or arr[i][j]=='T32' or arr[i][j]=='T1' or arr[i][j]=='T31'  or arr[i][j]==''):
                     speed = 20
                     print("\nTill ",i-1," the lane moves with the speed of ",speed)
                     break
@@ -180,7 +180,7 @@ def movementLane(arr , rows , j,sp):
             sp[i][j]=25
             i+=1
             while(i<rows):
-                if(arr[i][j]=='C2' or arr[i][j]=='T22' or arr[i][j]=='T32' or arr[i][j]=='T1' or arr[i][j]=='T31'  or arr[i][j]=='' or arr[i][j]=='B1' or arr[i][j]=='E' or arr[i][j]=='T21'):
+                if(arr[i][j]=='C2' or arr[i][j]=='C2C2C2' or arr[i][j]=='B2C2' or arr[i][j]=='C2B2' or arr[i][j]=='C2C2' or arr[i][j]=='T22' or arr[i][j]=='T32' or arr[i][j]=='T1' or arr[i][j]=='T31'  or arr[i][j]=='' or arr[i][j]=='B1' or arr[i][j]=='E' or arr[i][j]=='T21'):
                     speed = 25
                     print("\nTill ",i-1," the lane moves with the speed of ",speed)
                     break
@@ -197,7 +197,7 @@ def movementLane(arr , rows , j,sp):
             sp[i][j]=30
             i+=1
             while(i<rows):
-                if(arr[i][j]=='C2' or arr[i][j]=='T22' or arr[i][j]=='T32' or arr[i][j]=='T1' or arr[i][j]=='T31'  or arr[i][j]=='' or arr[i][j]=='B1' or arr[i][j]=='E' or arr[i][j]=='T21' or arr[i][j]=='T4'):
+                if(arr[i][j]=='C2' or arr[i][j]=='C2C2C2' or arr[i][j]=='B2C2' or arr[i][j]=='C2B2' or arr[i][j]=='C2C2' or arr[i][j]=='T22' or arr[i][j]=='T32' or arr[i][j]=='T1' or arr[i][j]=='T31'  or arr[i][j]=='' or arr[i][j]=='B1' or arr[i][j]=='E' or arr[i][j]=='T21' or arr[i][j]=='T4'):
                     speed = 30
                     print("\nTill ",i-1," the lane moves with the speed of ",speed)
                     break
@@ -214,7 +214,7 @@ def movementLane(arr , rows , j,sp):
             sp[i][j]=35
             i+=1
             while(i<rows):
-                if(arr[i][j]=='C2' or arr[i][j]=='T22' or arr[i][j]=='T32' or arr[i][j]=='T1' or arr[i][j]=='T31'  or arr[i][j]=='' or arr[i][j]=='B1' or arr[i][j]=='E' or arr[i][j]=='T21' or arr[i][j]=='T4' or arr[i][j]=='C1'):
+                if(arr[i][j]=='C2' or arr[i][j]=='C2C2C2' or arr[i][j]=='B2C2' or arr[i][j]=='C2B2' or arr[i][j]=='C2C2' or arr[i][j]=='T22' or arr[i][j]=='T32' or arr[i][j]=='T1' or arr[i][j]=='T31'  or arr[i][j]=='' or arr[i][j]=='B1' or arr[i][j]=='E' or arr[i][j]=='T21' or arr[i][j]=='T4' or arr[i][j]=='C1'):
                     speed = 35
                     print("\nTill ",i-1," the lane moves with the speed of ",speed)
                     break
