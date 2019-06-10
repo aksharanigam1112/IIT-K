@@ -128,7 +128,7 @@ def movementLane(arr , rows , j,sp):
 
     i=0
     speed =0
-    #print(arr)
+
     while(i<rows):
 
         #For Cycle , Loaded Tanker & Loaded Troller
@@ -146,7 +146,7 @@ def movementLane(arr , rows , j,sp):
             sp[i][j]=15
             i+=1
             while(i<rows):
-                if(arr[i][j]=='C2' or arr[i][j]=='T22' or arr[i][j]=='T32' or arr[i][j]==''):
+                if(arr[i][j]=='C2' or arr[i][j]=='T22' or arr[i][j]=='T32' or arr[i][j]=='C2C2C2' or arr[i][j]=='C2C2' or arr[i][j]==''):
                     speed = 15
                     print("\nTill ",i-1," the lane moves with the speed of ",speed)
                     break
