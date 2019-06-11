@@ -1,3 +1,5 @@
+from os import system
+
 def inflow():
     r = road()
     s = Signal()
@@ -13,7 +15,7 @@ def inflow():
             s.lightGreen(i,r)
             i+=1
     if(ch==2):
-        r.takeDefault(vehicles)
+        takeDefault()
         
     
 def takeDefault():
@@ -30,14 +32,14 @@ def takeDefault():
         Early()
     
 def Early():
-    # run the test case for this time slot
+    system("python Traffic.py <test cases/22-6a.txt")
 def Morning():
-    # run the test case for this time slot
+    system("python Traffic.py <test cases/6-10a.txt")
 def Noon():
-    # run the test case for this time slot
+    system("python Traffic.py <test cases/10-13a.txt")
 def Evening():
-    # run the test case for this time slot
+    system("python Traffic.py <test cases/13-17a.txt")
 def Night():
-    # run the test case for this time slot
+    system("python Traffic.py <test cases/17-22a.txt")
     
 
