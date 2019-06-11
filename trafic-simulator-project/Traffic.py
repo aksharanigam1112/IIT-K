@@ -2,7 +2,7 @@ import numpy as np
 import math
 import random
 from Signal import mainSignal
-from Movement import arange, movementLeft, movementRight, movementStraight , movementLane
+from Movement import arange,  movementLane
 SIZE = 75 
 
 class MainWindow:
