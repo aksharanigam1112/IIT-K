@@ -53,16 +53,19 @@ class Signal:
                 k+=2
                                           
             elif(r[i].x[k][j]=='B2' or r[i].x[k][j]=='C2' or r[i].x[k][j]=='B2B2' or r[i].x[k][j]=='C2C2C2' or r[i].x[k][j]=='B2C2' or r[i].x[i][j]=='C2B2'):
-                n = k
-                while(n<(k+1)):
-                    r[i].x[n][j] = ''
-                    n+=1
+                
                 if(r[i].x[k][j]=='C2C2' or r[i].x[k][j]=='C2B2' or r[i].x[k][j]=='B2C2' or r[i].x[k][j]=='B2B2'):
                     count+=1
                     
                 elif(r[i].x[k][j]=='C2C2C2'):
                     count+=2
+
+                n = k
+                while(n<(k+1)):
+                    r[i].x[n][j] = ''
+                    n+=1
                 k+=1
+
             if(r[i].sp[k-1][j]!=0):
                 time1= int(math.ceil(k*scaling/r[i].sp[k-1][j]))
             else:
@@ -144,7 +147,7 @@ class Signal:
             time =self.dur
             while(k<25 and r[i].x[k][j]!='' and time>0 and r[i].vehicles>=1):
                 count+=1
-
+                
                 if(r[i].x[k][j]=='T1'or r[i].x[k][j]=='B1'):
                     n = k
                     while(n<(k+5)):
@@ -174,17 +177,19 @@ class Signal:
                     k+=2
                                           
                 elif(r[i].x[k][j]=='B2' or r[i].x[k][j]=='C2' or r[i].x[k][j]=='C2C2C2' or r[i].x[k][j]=='C2C2' or r[i].x[k][j]=='C2B2' or r[i].x[k][j]=='B2C2' or r[i].x[k][j]=='B2B2'):
-                    n = k
-                    while(n<(k+1)):
-                        r[i].x[n][j] = ''
-                        n+=1
+                    
                     if(r[i].x[k][j]=='C2C2' or r[i].x[k][j]=='C2B2' or r[i].x[k][j]=='B2C2' or r[i].x[k][j]=='B2B2'):
                         count+=1
                     elif(r[i].x[k][j]=='C2C2C2'):
                         count+=2
                     
+                    n = k
+                    while(n<(k+1)):
+                        r[i].x[n][j] = ''
+                        n+=1
+                    
                     k+=1
-		
+                
                 if(r[i].sp[k-1][j]!=0):
                     time1= int(math.ceil(k*scaling/r[i].sp[k-1][j]))
                 else:
@@ -200,35 +205,37 @@ class Signal:
         print("\n\t\tNew Arrangement for road ",(i+1),"\n")
         r[i].x=self.moveForward(r[i].x,i,r)
         
-        # count=0
-        # k=0
-        # while(k<25 and r[i].x[k][0]!='' and r[i].vehicles>=1):
-        #     count+=1
-        #     if(r[i].x[k][0]=='T1'or r[i].x[k][0]=='B1'):
-        #         k+=5
+        count=0
+        k=0
+        while(k<25 and r[i].x[k][0]!='' and r[i].vehicles>=1):
+            count+=1
+            if(r[i].x[k][0]=='T1'or r[i].x[k][0]=='B1'):
+                k+=5
 
-        #     elif(r[i].x[k][0]=='T21'or r[i].x[k][0]=='T22'):
-        #         k+=7
+            elif(r[i].x[k][0]=='T21'or r[i].x[k][0]=='T22'):
+                k+=7
 
-        #     elif(r[i].x[k][0]=='T31'or r[i].x[k][0]=='T32'):
-        #         k+=6
+            elif(r[i].x[k][0]=='T31'or r[i].x[k][0]=='T32'):
+                k+=6
                             
-        #     elif(r[i].x[k][0]=='C1' or r[i].x[k][0]=='E' or r[i].x[k][0]=='T4'):
-        #         k+=2
+            elif(r[i].x[k][0]=='C1' or r[i].x[k][0]=='E' or r[i].x[k][0]=='T4'):
+                k+=2
                                           
-        #     elif(r[i].x[k][0]=='B2' or r[i].x[k][0]=='C2'):
-        #         k+=1
+            elif(r[i].x[k][0]=='B2' or r[i].x[k][0]=='C2'):
+                k+=1
                 
-        #     elif(r[i].x[k][0]=='C2C2C2'):
-        #         k+=1
-        #         count+=2
+            elif(r[i].x[k][0]=='C2C2C2'):
+                k+=1
+                count+=2
                 
-        #     elif(r[i].x[k][0]=='C2B2' or r[i].x[k][0]=='B2C2' or r[i].x[k][0]=='B2B2' or r[i].x[k][0]=='C2C2'):
-        #         k+=1
-        #         count+=1
+            elif(r[i].x[k][0]=='C2B2' or r[i].x[k][0]=='B2C2' or r[i].x[k][0]=='B2B2' or r[i].x[k][0]=='C2C2'):
+                k+=1
+                count+=1
+
                 
-        # r[i].vehicles-=count
-        print("\nVehicles remaining for this road:- ",r[i].vehicles)
+        r[i].vehicles-=count
+        print("\nVehicles remaining on these two lanes:- ",r[i].vehicles)
+    
         
 def mainSignal(p):
     s =[]
@@ -264,7 +271,7 @@ def mainSignal(p):
         print("\n\n",p[i].x)
         i+=1
 
-
+    
     print("\n\t\tWhen Signal is given Anticlockwise")
     i=3
     while(i>=0):                         # For Anti-Clockwise Signal behaviour
