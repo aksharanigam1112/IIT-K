@@ -1,7 +1,7 @@
 import numpy as np
 import random
 
-def arange( ch, space, x, rows, col,dir):
+def arange( ch, space, x, rows,dir):
 
     i = 0
     i1=0
@@ -31,7 +31,7 @@ def arange( ch, space, x, rows, col,dir):
                 space-=1
                 i+=1
         else:
-                print("wait till trafic moves")
+                print("\nWait till traffic moves")
             
     elif(dir=='S'):
         i=0
@@ -50,7 +50,7 @@ def arange( ch, space, x, rows, col,dir):
                 space-=1
                 i+=1
         else:
-                print("wait till trafic moves")
+                print("\nWait till traffic moves")
 
     elif(dir=='R'):
         i=0
@@ -62,7 +62,7 @@ def arange( ch, space, x, rows, col,dir):
                 space-=1
                 i+=1
         else:
-                print("wait till trafic moves")
+                print("\nWait till traffic moves")
     
     while(x[i][j]!='' and rows-i>=space):
         i+=1
