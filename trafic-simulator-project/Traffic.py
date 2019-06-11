@@ -3,8 +3,39 @@ import math
 import random
 from Signal import mainSignal
 from Movement import arange, movementLeft, movementRight, movementStraight , movementLane
+SIZE = 75 
 
-SIZE = 75
+class MainWindow:
+
+    def ButtonClick(self ,i , r, s):
+
+        if(r[i].con>0.7):
+            s.dur+=10
+
+        elif(r[i].con<0.2):
+            i=0
+            x=0
+            while(i<4):
+                if(s[i].direction == "clockwise" and s.colour[i]=='O'):
+                    s.colour[i] = 'G'
+                    if(i>0):
+                        x = (i-1)%4
+                    else:
+                        x=1
+                    s.colour[x] = 'R'
+                    x = (i+1)%4
+                    s.colour[x] = 'O'
+                elif(s[i].direction=="anticlockwise" and s.colour[i]=='O'):
+                    s.colour[i] = 'G'
+                    x = (i+1)%4
+                    s.colour[x] = 'R'
+                    if(i>0):
+                        x = (i-1)%4
+                    else:
+                        x = 3
+                    s.colour[x] = 'O'
+
+                i+=1
 
 class vehicle:
 
@@ -84,6 +115,10 @@ class road:
             i+=1
         
         random.shuffle(self.unplaced)
+
+    # @classmethod
+    # def defaultConst(self):
+    #     pass
 
     def Display(self):
 
@@ -287,8 +322,8 @@ def main():
     # source = int(input())
     # destination = int(input())
     
-    print("\nEnter the total no. of psuedo-lanes (not more than 3):- ")
-    l = int(input())
+    # print("\nEnter the total no. of psuedo-lanes (not more than 3):- ")
+    # l = int(input())
     # mainSiganl(r
     i=0
     while(i<4):
@@ -301,57 +336,57 @@ def main():
             if(j==0):
                 v.append(vehicle("T1",5))
                 dir=v[k].direction()
-                arange("T1",5,r[i].x,rows,l,dir)
+                arange("T1",5,r[i].x,rows,dir)
 
             elif(j==1):
                 v.append(vehicle("T31",6))
                 dir=v[k].direction()
-                arange("T31",7,r[i].x,rows,l,dir)
+                arange("T31",7,r[i].x,rows,dir)
             
             elif(j==2):
                 v.append(vehicle("T32",6))
                 dir=v[k].direction()
-                arange("T32",7,r[i].x,rows,l,dir)
+                arange("T32",7,r[i].x,rows,dir)
 
             elif(j==3):
                 v.append(vehicle("T21",7))
                 dir=v[k].direction()
-                arange("T21",6,r[i].x,rows,l,dir)
+                arange("T21",6,r[i].x,rows,dir)
             
             elif(j==4):
                 v.append(vehicle("T22",7))
                 dir=v[k].direction()
-                arange("T22",6,r[i].x,rows,l,dir)
+                arange("T22",6,r[i].x,rows,dir)
             
             elif(j==5):
                 v.append(vehicle("B1",5))
                 dir=v[k].direction()
-                arange("B1",5,r[i].x,rows,l,dir)
+                arange("B1",5,r[i].x,rows,dir)
             
             elif(j==6):
                 v.append(vehicle("C1",2))
                 dir=v[k].direction()
-                arange('C1',2,r[i].x,rows,l,dir)
+                arange('C1',2,r[i].x,rows,dir)
             
             elif(j==7):
                 v.append(vehicle("T4",2))
                 dir=v[k].direction()
-                arange("T4",2,r[i].x,rows,l,dir)
+                arange("T4",2,r[i].x,rows,dir)
             
             elif(j==8):
                 v.append(vehicle("E",2))
                 dir=v[k].direction()
-                arange("E",2,r[i].x,rows,l,dir)
+                arange("E",2,r[i].x,rows,dir)
         
             elif(j==9):
                 v.append(vehicle("B2",1))
                 dir=v[k].direction()
-                arange("B2",1,r[i].x,rows,l,dir)
+                arange("B2",1,r[i].x,rows,dir)
             
             elif(j==10):
                 v.append(vehicle("C2",1))
                 dir=v[k].direction()
-                arange("C2",1,r[i].x,rows,l,dir)
+                arange("C2",1,r[i].x,rows,dir)
 
             else:
                 pass
