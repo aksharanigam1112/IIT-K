@@ -78,51 +78,30 @@ def arange( ch, space, x, rows,dir):
         j=2
     
 
-def movementLeft():
-
-    print("\n\n\t\t If 1st Row th vehicle moves left")
-    print("\nJaam Causing Hindrances will occur in:- ")
-    print("\n1 2 3")
-    print("\nL R S")
+def inCenterLaneMovingStraight():
+    print("\n No Hinderance will occur :-")
+    print("\nL S R")
+    print("\nL S S")
+    print("\nHinderance will occur when :-")
     print("\nL S L")
-    print("\n No Hinderances will occur in:- ")
-    print("\n1 2 3")
+
+def inCenterLaneMovingRight():
+    print("\n No Hinderance will occur :- ")
+    print("\nL R R")
+    print("\nHinderances will occur when :-")
+    print("\nL R S")
+    print("\nL R L")
+
+def inRightLaneMovingStraight():
+    print("\n No Hinderances will occur :-")
+    print("\nL S S")
+    print("\nHinderances will occur when :- ")
+    print("\nL R S")
+
+def inRightLaneMovingRight():
+    print("\n No Hinderances will occur :-")
     print("\nL S R")
     print("\nL R R")
-    print("\nL S S")
-    print("\nL L S")
-    print("\nL L L")
-                        
-def movementRight():
-
-    print("\n\n\t\t If 1st Row th vehicle moves right")
-    print("\nJaam Causing Hindrances will occur in:- ")
-    print("\n1 2 3")
-    print("\nR S R")
-    print("\nR R S")
-    print("\nR S L")
-    print("\nR L S")
-    print("\nR L L")
-    print("\n no Hinderances will occur in:- ")
-    print("\n1 2 3")
-    print("\nR R R")
-    print("\nR S S")
-
-def movementStraight():
-
-    print("\n\n\t\t If 1st Row th vehicle moves straight")
-    print("\nJaam Causing Hindrances will occur in:- ")
-    print("\n1 2 3")
-    print("\nS R S")
-    print("\nS R R")
-    print("\nS L L")
-    print("\nS L S")
-    print("\nS S L")
-    print("\n No Hinderances will occur in:- ")
-    print("\n1 2 3")
-    print("\nS S S")
-    print("\nS S R")
-    print("\nS R R")
 
 def movementLane(arr , rows , j,sp):
 
