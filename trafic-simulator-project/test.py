@@ -65,8 +65,6 @@ def recording(file):
     file2.write(str(vehicles))
     file2.write("\tCongession:- ")
     file2.write(str(con)) 
-    file2.write("\n\n")  
-
     file1.close()
     file2.close()
     system("gedit record.txt")
