@@ -1,0 +1,22 @@
+
+16
+Road 1	Space:- 40	[3, 0, 0, 0, 0, 1, 5, 0, 0, 10, 0]	Vehicles:- 19	Congession:- 0.5333333333333333
+Road 2	Space:- 34	[0, 0, 1, 0, 2, 3, 0, 0, 0, 0, 0]	Vehicles:- 6	Congession:- 0.4533333333333333
+Road 3	Space:- 50	[0, 0, 0, 0, 0, 0, 15, 0, 0, 20, 0]	Vehicles:- 35	Congession:- 0.6666666666666666
+Road 4	Space:- 25	[0, 0, 0, 0, 0, 0, 0, 4, 5, 0, 7]	Vehicles:- 16	Congession:- 0.3333333333333333
+00
+Road 1	Space:- 40	[3, 0, 0, 0, 0, 1, 5, 0, 0, 10, 0]	Vehicles:- 19	Congession:- 0.5333333333333333
+Road 2	Space:- 34	[0, 0, 1, 0, 2, 3, 0, 0, 0, 0, 0]	Vehicles:- 6	Congession:- 0.4533333333333333
+Road 3	Space:- 50	[0, 0, 0, 0, 0, 0, 15, 0, 0, 20, 0]	Vehicles:- 35	Congession:- 0.6666666666666666
+Road 4	Space:- 25	[0, 0, 0, 0, 0, 0, 0, 4, 5, 0, 7]	Vehicles:- 16	Congession:- 0.3333333333333333
+02
+Road 1	Space:- 28	[1, 0, 1, 0, 0, 1, 3, 0, 0, 5, 0]	Vehicles:- 11	Congession:- 0.37333333333333335
+Road 2	Space:- 33	[0, 1, 0, 0, 2, 0, 0, 3, 4, 0, 0]	Vehicles:- 10	Congession:- 0.44
+Road 3	Space:- 35	[0, 0, 2, 0, 0, 0, 4, 0, 0, 3, 10]	Vehicles:- 19	Congession:- 0.4666666666666667
+Road 4	Space:- 43	[0, 1, 0, 2, 0, 2, 0, 3, 4, 0, 0]	Vehicles:- 12	Congession:- 0.5733333333333334
+6-10
+Road 1	Space:- 55	[0, 0, 0, 0, 0, 5, 5, 3, 2, 8, 2]	Vehicles:- 25	Congession:- 0.7333333333333333
+Road 2	Space:- 50	[0, 0, 0, 0, 0, 4, 6, 2, 2, 10, 0]	Vehicles:- 24	Congession:- 0.6666666666666666
+Road 3	Space:- 40	[1, 0, 0, 0, 0, 3, 4, 0, 3, 5, 1]	Vehicles:- 17	Congession:- 0.5333333333333333
+Road 4	Space:- 45	[0, 0, 0, 0, 0, 4, 8, 1, 0, 7, 0]	Vehicles:- 20	Congession:- 0.6
+
