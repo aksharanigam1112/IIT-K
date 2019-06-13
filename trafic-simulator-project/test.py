@@ -10,7 +10,6 @@ def recording(file):
     data=[]
     space = 0
 
-
     for x in file1 :
         if(x=="Road\n"):
             prev = x
