@@ -16,33 +16,32 @@ def takeDefault():
 def Early():
     file = "test cases/22-6a.txt"
     file1 = open("record.txt","a")
-    file1.write("22-6\n")
+    file1.write("\n22-6")
     file1.close()
     recording(file)
 def Morning():
     file= "test cases/6-10a.txt"
     file1 = open("record.txt","a")
-    file1.write("6-10\n")
+    file1.write("\n6-10")
     file1.close()
     recording(file)
 def Noon():
     file="test cases/10-13a.txt"
     file1 = open("record.txt","a")
-    file1.write("10-13\n")
+    file1.write("\n10-13")
     file1.close()
     recording(file)
 def Evening():
     file="test cases/13-17a.txt"
     file1 = open("record.txt","a")
-    file1.write("13-17\n")
+    file1.write("\n13-17")
     file1.close()
     recording(file)
 def Night():
     file="test cases/17-22a.txt"
     file1 = open("record.txt","a")
-    file1.write("17-22\n")
+    file1.write("\n17-22")
     file1.close()
     recording(file)
     
-
 takeDefault()
