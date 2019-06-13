@@ -1,4 +1,15 @@
 from test import recording
+from os import system
+def run():
+    ch=0
+    print("\nEnter the values ... 1")
+    print("\nTake Default values...2")
+    ch = int(input("\nEnter your choice"))
+    if(ch==1):
+        system("python3 traffic.py <input.txt")
+    elif(ch==2):
+        takeDefault()
+    
 
 def takeDefault():
     time  = int(input("\nEnter time in 24hour format:- "))
@@ -43,5 +54,4 @@ def Night():
     file1.write("\n17-22")
     file1.close()
     recording(file)
-    
-takeDefault()
+run()
