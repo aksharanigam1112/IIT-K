@@ -1,8 +1,9 @@
 import numpy as np
 import math
+from datetime import datetime
 import random
 from Signal import mainSignal
-from Movement import arange,  movementLane
+from Movement import arange, movementLane
 SIZE = 75 
 
 class MainWindow:
@@ -198,14 +199,24 @@ class road:
 
         
 def main():
-
+    
+    now = datetime.now()
+    current_time = now.strftime("%H")
+    file = open("record.txt","a")
+    file.write("\n")
+    file.write(str(current_time))
     r = []
     i=0
     while(i<4):
 
+        
         print("\n\t\tEnter the details for road ",i+1)
         print("\n\tUnit of space occupied:- ")
         space = int(input())
+        file.write("\nRoad ")
+        file.write(str(i+1))
+        file.write("\tSpace:- ")
+        file.write(str(space))
         con = space / SIZE
         data=[0,0,0,0,0,0,0,0,0,0,0]
         while(space > 0):
@@ -307,10 +318,17 @@ def main():
 
             vehicles+=data[j]
             j+=1
-        
+
+        file.write("\t")
+        file.write(str(data))
+        file.write("\tVehicles:- ")
+        file.write(str(vehicles))
+        file.write("\tCongession:- ")
+        file.write(str(con))
+
         r.append(road(space,con,vehicles,data))
         i+=1
-    
+    file.close()
     i=0 
     while(i<4):
 
@@ -318,13 +336,6 @@ def main():
         r[i].Display()
         i+=1
 
-    # print("\n\nEnter source & destination :- ")
-    # source = int(input())
-    # destination = int(input())
-    
-    # print("\nEnter the total no. of psuedo-lanes (not more than 3):- ")
-    # l = int(input())
-    # mainSiganl(r
     i=0
     while(i<4):
         
@@ -339,22 +350,22 @@ def main():
                 arange("T1",5,r[i].x,rows,dir)
 
             elif(j==1):
-                v.append(vehicle("T31",6))
+                v.append(vehicle("T31",7))
                 dir=v[k].direction()
                 arange("T31",7,r[i].x,rows,dir)
             
             elif(j==2):
-                v.append(vehicle("T32",6))
+                v.append(vehicle("T32",7))
                 dir=v[k].direction()
                 arange("T32",7,r[i].x,rows,dir)
 
             elif(j==3):
-                v.append(vehicle("T21",7))
+                v.append(vehicle("T21",6))
                 dir=v[k].direction()
                 arange("T21",6,r[i].x,rows,dir)
             
             elif(j==4):
-                v.append(vehicle("T22",7))
+                v.append(vehicle("T22",6))
                 dir=v[k].direction()
                 arange("T22",6,r[i].x,rows,dir)
             
@@ -397,7 +408,6 @@ def main():
         r[i].Merge()
         print("\n\t After Merging Bikes & Cycles :- \n" , r[i].x)
         i+=1
-    
     
     # if((source==1 and destination==2) or (source==2 and destination==3) or (source==3 and destination==4) or (source==4 and destination==2)):
 
