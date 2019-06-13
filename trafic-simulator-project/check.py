@@ -1,25 +1,7 @@
-from os import system
+from test import recording
 
-def inflow():
-    r = road()
-    s = Signal()
-
-    print("\nEnter the road inflow ... 1")
-    print("\nTake default values as the inflow ... 2")
-    ch = int(input("\nEnter your choice:- "))
-
-    if(ch==1):
-        r.takeInput()     # Take the exact input for the road
-        i=0
-        while(i<4):
-            s.lightGreen(i,r)
-            i+=1
-    if(ch==2):
-        takeDefault()
-        
-    
 def takeDefault():
-    time  = int(input("\nEnter time in 24hour format"))
+    time  = int(input("\nEnter time in 24hour format:- "))
     if(time>=6 and time<=10):
         Morning()
     elif(time>=10 and time<=13):
@@ -28,18 +10,39 @@ def takeDefault():
         Evening()
     elif(time>=17 and time <=22):
         Night()
-    elif(time>=22 and time <=6):
+    elif((time>=22 and time<=24) or (time >=1 and time<6)):
         Early()
     
 def Early():
-    system("python Traffic.py <test cases/22-6a.txt")
+    file = "test cases/22-6a.txt"
+    file1 = open("record.txt","a")
+    file1.write("22-6\n")
+    file1.close()
+    recording(file)
 def Morning():
-    system("python Traffic.py <test cases/6-10a.txt")
+    file= "test cases/6-10a.txt"
+    file1 = open("record.txt","a")
+    file1.write("6-10\n")
+    file1.close()
+    recording(file)
 def Noon():
-    system("python Traffic.py <test cases/10-13a.txt")
+    file="test cases/10-13a.txt"
+    file1 = open("record.txt","a")
+    file1.write("10-13\n")
+    file1.close()
+    recording(file)
 def Evening():
-    system("python Traffic.py <test cases/13-17a.txt")
+    file="test cases/13-17a.txt"
+    file1 = open("record.txt","a")
+    file1.write("13-17\n")
+    file1.close()
+    recording(file)
 def Night():
-    system("python Traffic.py <test cases/17-22a.txt")
+    file="test cases/17-22a.txt"
+    file1 = open("record.txt","a")
+    file1.write("17-22\n")
+    file1.close()
+    recording(file)
     
 
+takeDefault()
