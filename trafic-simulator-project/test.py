@@ -67,5 +67,4 @@ def recording(file):
     file2.write(str(con)) 
     file1.close()
     file2.close()
-    system("gedit record.txt")
-
+    # system("gedit record.txt")

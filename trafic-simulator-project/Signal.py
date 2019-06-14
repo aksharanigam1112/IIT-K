@@ -237,63 +237,64 @@ class Signal:
         print("\nVehicles remaining on these two lanes:- ",r[i].vehicles)
     
         
-def mainSignal(p):
+def mainSignal(p,time):
     s =[]
     colour = ['O','O','O','O']
     i=0
     while(i<4):
         s.append(Signal(colour))
         i+=1
+    if(time>=6 and time<22):
+        print("\n\t\tWhen Signal is given Clockwise")
+        i=0
+        while(i<4):                         # For Clockwise Signal behaviour
+            print("\n\n\t\tSignal is Green for road ",(i+1),"\n")
+            print("\n",p[i].x)
+            #print("\n",p[i].sp)
+            s[i].lightGreen(i,p)
+            s[i].light[i] = 'G'
+            x = (i+1)%4
+            s[i].light[x]='O'
+            x = (i+2)%4
+            s[i].light[x] = 'R'
+            x = (i+3)%4
+            s[i].light[x] = 'R'
+            print("\nSignal was as follows :-",s[i].light)
+            i+=1
+        
 
-    print("\n\t\tWhen Signal is given Clockwise")
-    i=0
-    while(i<4):                         # For Clockwise Signal behaviour
-        print("\n\n\t\tSignal is Green for road ",(i+1),"\n")
-        print("\n",p[i].x)
-        #print("\n",p[i].sp)
-        s[i].lightGreen(i,p)
-        s[i].light[i] = 'G'
-        x = (i+1)%4
-        s[i].light[x]='O'
-        x = (i+2)%4
-        s[i].light[x] = 'R'
-        x = (i+3)%4
-        s[i].light[x] = 'R'
-        print("\nSignal was as follows :-",s[i].light)
-        i+=1
+        print("\n\n\t\tLeft lane movements")
+        i=0
+        while(i<4):
+            print("\n\tFor road ",i+1)
+            s[i].MoveLeft(p[i].x,p[i].sp,i,p)
+            print("\n\n",p[i].x)
+            i+=1
+
     
+        # print("\n\t\tWhen Signal is given Anticlockwise")
+        # i=3
+        # while(i>=0):                         # For Anti-Clockwise Signal behaviour
+        #     print("\n\n\t\tSignal is Green for road ",(i+1),"\n")
+        #     print("\n",p[i].x)
+        #     #print("\n",p[i].sp)
+        #     s[i].lightGreen(i,p)
+        #     s[i].light[i] = 'G'
+        #     x = (i-1)%4
+        #     s[i].light[x]='O'
+        #     x = (i-2)%4
+        #     s[i].light[x] = 'R'
+        #     x = (i-3)%4
+        #     s[i].light[x] = 'R'
+        #     print("\n\tSignal was as follows :-",s[i].light)
+        #     i-=1
 
-    print("\n\n\t\tLeft lane movements")
-    i=0
-    while(i<4):
-        print("\n\tFor road ",i+1)
-        s[i].MoveLeft(p[i].x,p[i].sp,i,p)
-        print("\n\n",p[i].x)
-        i+=1
-
-    
-    print("\n\t\tWhen Signal is given Anticlockwise")
-    i=3
-    while(i>=0):                         # For Anti-Clockwise Signal behaviour
-        print("\n\n\t\tSignal is Green for road ",(i+1),"\n")
-        print("\n",p[i].x)
-        #print("\n",p[i].sp)
-        s[i].lightGreen(i,p)
-        s[i].light[i] = 'G'
-        x = (i-1)%4
-        s[i].light[x]='O'
-        x = (i-2)%4
-        s[i].light[x] = 'R'
-        x = (i-3)%4
-        s[i].light[x] = 'R'
-        print("\n\tSignal was as follows :-",s[i].light)
-        i-=1
-
-    print("\n\n\t\tLeft lane movements")
-    i=0
-    while(i<4):
-        print("\n\tFor road ",i+1)
-        s[i].MoveLeft(p[i].x,p[i].sp,i,p)
-        print("\n\n",p[i].x)
-        i+=1
-
+        # print("\n\n\t\tLeft lane movements")
+        # i=0
+        # while(i<4):
+        #     print("\n\tFor road ",i+1)
+        #     s[i].MoveLeft(p[i].x,p[i].sp,i,p)
+        #     print("\n\n",p[i].x)
+        #     i+=1
+        else:
+            print("call fcfs here")

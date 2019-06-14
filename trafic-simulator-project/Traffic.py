@@ -1,10 +1,14 @@
+import random
+from Movement import arange,movementLane
+from Signal import mainSignal
+from time import sleep
 import numpy as np
 import math
 from datetime import datetime
-import random
-from Signal import mainSignal
-from Movement import arange, movementLane
-SIZE = 75 
+from default import takeDefault,inflow
+from test import recording
+
+SIZE = 75
 
 class MainWindow:
 
@@ -55,67 +59,49 @@ class road:
 
         self.x = np.chararray((25,3),itemsize = 6 , unicode=True)
         self.sp=np.zeros((25,3))
-
+        
+        self.data=[0,0,0,0,0,0,0,0,0,0,0]
 
         self.space = space
 
         self.truck = [5,15,0,0]
-        self.truck[2]=data[0]
-        self.truck[3]=data[0]*self.truck[0]
 
         self.utroller = [7,15,0,0]
-        self.utroller[2] = data[1]
-        self.utroller[3] = data[1]*self.utroller[0]
 
         self.ltroller = [7,10,0,0]
-        self.ltroller[2] = data[2]
-        self.ltroller[3] = data[2]*self.utroller[0]
 
         self.utanker = [6,20,0,0]
-        self.utanker[2] = data[3]
-        self.utanker[3] = data[3]*self.utanker[0]
 
         self.ltanker = [6,10,0,0]
-        self.ltanker[2] = data[4]
-        self.ltanker[3] = data[4]*self.ltanker[0]
 
         self.bus = [5,20,0,0]
-        self.bus[2]=data[5]
-        self.bus[3]=data[5]*self.bus[0]
 
         self.car = [2,30,0,0]
-        self.car[2]=data[6]
-        self.car[3]=data[6]*self.car[0]
 
         self.erick = [2,20,0,0]
-        self.erick[2]=data[7]
-        self.erick[3]=data[7]*self.erick[0]
 
         self.tempo = [2,25,0,0]
-        self.tempo[2]=data[8]
-        self.tempo[3]=data[8]*self.tempo[0]
 
         self.bike = [1,35,0,0]
-        self.bike[2]=data[9]
-        self.bike[3]=data[9]*self.bike[0]
 
         self.cycle = [1,10,0,0]
-        self.cycle[2]=data[10]
-        self.cycle[3]=data[10]*self.cycle[0]
         
         self.con = con
         self.vehicles=vehicles
         self.unplaced=[]
+        self.waitL=[]
+        self.waitS=[]
+        self.waitR=[]
         
-        i=0
-        while(i<11):
-            j=0
-            while(j<data[i]):
-                self.unplaced.append(i)
-                j+=1
-            i+=1
+        # i=0
+        # while(i<11):
+        #     j=0
+        #     while(j<data[i]):
+        #         self.unplaced.append(i)
+        #         j+=1
+        #     i+=1
         
-        random.shuffle(self.unplaced)
+        # random.shuffle(self.unplaced)
 
     # @classmethod
     # def defaultConst(self):
@@ -196,139 +182,216 @@ class road:
                 else:
                     i+=1
             j+=1
+def getvehicle(v,wait,dir,rows,i):
+    k=0
+    for j in wait:
+        flag=True
+        if(j==0):
+            v.append(vehicle("T1",5))
+            if(dir=="N"):
+                dir=v[k].direction()
+            else:
+                pass
+            flag=arange(r,j,"T1",5,r[i].x,rows,dir,i)
+            if(flag==False):
+                if(flag==False):
+                    if(dir=='L'):
+                        r[i].waitL.append(j)
+                    elif(dir=='S'):
+                        r[i].waitS.append(j)
+                    else:
+                        r[i].waitR.append(j)
+        elif(j==1):
+            v.append(vehicle("T31",7))
+            if(dir=="N"):
+                dir=v[k].direction()
+            else:
+                pass
+            flag=arange(r,j,"T31",7,r[i].x,rows,dir,i)
+            if(flag==False):
+                if(dir=='L'):
+                    r[i].waitL.append(j)
+                elif(dir=='S'):
+                    r[i].waitS.append(j)
+                else:
+                    r[i].waitR.append(j)
+                    
+        elif(j==2):
+            v.append(vehicle("T32",7))
+            if(dir=="N"):
+                dir=v[k].direction()
+            else:
+                pass
+            flag=arange(r,j,"T32",7,r[i].x,rows,dir,i)
+            if(flag==False):
+                if(dir=='L'):
+                    r[i].waitL.append(j)
+                elif(dir=='S'):
+                    r[i].waitS.append(j)
+                else:
+                    r[i].waitR.append(j)
 
-        
+        elif(j==3):
+            v.append(vehicle("T21",6))
+            if(dir=="N"):
+                dir=v[k].direction()
+            else:
+                pass
+            flag=arange(r,j,"T21",6,r[i].x,rows,dir,i)
+            if(flag==False):
+                if(dir=='L'):
+                    r[i].waitL.append(j)
+                elif(dir=='S'):
+                    r[i].waitS.append(j)
+                else:
+                    r[i].waitR.append(j)
+                    
+        elif(j==4):
+            v.append(vehicle("T22",6))
+            if(dir=="N"):
+                dir=v[k].direction()
+            else:
+                pass
+            flag=arange(r,j,"T22",6,r[i].x,rows,dir,i)
+            if(flag==False):
+                if(dir=='L'):
+                    r[i].waitL.append(j)
+                elif(dir=='S'):
+                    r[i].waitS.append(j)
+                else:
+                    r[i].waitR.append(j)
+                    
+        elif(j==5):
+            v.append(vehicle("B1",5))
+            if(dir=="N"):
+                dir=v[k].direction()
+            else:
+                pass
+            flag=arange(r,j,"B1",5,r[i].x,rows,dir,i)
+            if(flag==False):
+                if(dir=='L'):
+                    r[i].waitL.append(j)
+                elif(dir=='S'):
+                    r[i].waitS.append(j)
+                else:
+                    r[i].waitR.append(j)
+                    
+        elif(j==6):
+            v.append(vehicle("C1",2))
+            if(dir=="N"):
+                dir=v[k].direction()
+            else:
+                pass
+            flag=arange(r,j,'C1',2,r[i].x,rows,dir,i)
+            if(flag==False):
+                if(dir=='L'):
+                    r[i].waitL.append(j)
+                elif(dir=='S'):
+                    r[i].waitS.append(j)
+                else:
+                    r[i].waitR.append(j)
+                    
+        elif(j==7):
+            v.append(vehicle("T4",2))
+            if(dir=="N"):
+                dir=v[k].direction()
+            else:
+                pass
+            flag=arange(r,j,"T4",2,r[i].x,rows,dir,i)
+            if(flag==False):
+                if(dir=='L'):
+                    r[i].waitL.append(j)
+                elif(dir=='S'):
+                    r[i].waitS.append(j)
+                else:
+                    r[i].waitR.append(j)
+                    
+        elif(j==8):
+            v.append(vehicle("E",2))
+            if(dir=="N"):
+                dir=v[k].direction()
+            else:
+                pass
+            flag=arange(r,j,"E",2,r[i].x,rows,dir,i)
+            if(flag==False):
+                if(dir=='L'):
+                    r[i].waitL.append(j)
+                elif(dir=='S'):
+                    r[i].waitS.append(j)
+                else:
+                    r[i].waitR.append(j)
+                
+        elif(j==9):
+            v.append(vehicle("B2",1))
+            if(dir=="N"):
+                dir=v[k].direction()
+            else:
+                pass
+            flag=arange(r,j,"B2",1,r[i].x,rows,dir,i)
+            if(flag==False):
+                if(dir=='L'):
+                    r[i].waitL.append(j)
+                elif(dir=='S'):
+                    r[i].waitS.append(j)
+                else:
+                    r[i].waitR.append(j)
+                    
+        elif(j==10):
+            v.append(vehicle("C2",1))
+            if(dir=="N"):
+                dir=v[k].direction()
+            else:
+                pass
+            flag=arange(r,j,"C2",1,r[i].x,rows,dir,i)
+            if(flag==False):
+                if(dir=='L'):
+                    r[i].waitL.append(j)
+                elif(dir=='S'):
+                    r[i].waitS.append(j)
+                else:
+                    r[i].waitR.append(j)
+        else:
+            pass
+        k+=1
 def main():
-    
+    print("in main")
     now = datetime.now()
     current_time = now.strftime("%H")
-    file = open("record.txt","a")
-    file.write("\n")
-    file.write(str(current_time))
-    r = []
+    time=int(current_time)
+    
+    
+    ch=0
+    print("\nEnter the values ... 1")
+    print("\nTake Default values...2")
+    print("\nTo terminate ...0")
+    ch = int(input("\nEnter your choice"))
+    if(ch==1):
+        file = open("record.txt","a")
+        file.write("\n")
+        file.write(str(current_time))
+        file.close()
+        inflow(r,"test-cases/text.txt")
+        recording("test-cases/text.txt")
+    elif(ch==2):
+        time=takeDefault(r)
+    else:
+        print("Hope you liked it")
+        quit()
+    # print("place r[i].data into r[i].unplaced and shuffle it")
+    a=0
     i=0
-    while(i<4):
-
-        
-        print("\n\t\tEnter the details for road ",i+1)
-        print("\n\tUnit of space occupied:- ")
-        space = int(input())
-        file.write("\nRoad ")
-        file.write(str(i+1))
-        file.write("\tSpace:- ")
-        file.write(str(space))
-        con = space / SIZE
-        data=[0,0,0,0,0,0,0,0,0,0,0]
-        while(space > 0):
-
-            print("\n\tTruck...1")                  #T1
-            print("\n\tUnloaded Troller...2")       #T31
-            print("\n\tLoaded Troller...3")         #T32
-            print("\n\tUnloaded Tanker...4")        #T21
-            print("\n\tLoaded Tanker...5")          #T22
-            print("\n\tBuses...6")                  #B1
-            print("\n\tCars...7")                   #C1
-            print("\n\tE-Rickshaw...8")             #E
-            print("\n\tTempo...9")                  #T4
-            print("\n\tBikes & Scooty...10")        #B2
-            print("\n\tCycles...11")                #C2
-            print("\nEnter your choice:- ")
-            ch = int(input())
-
-            if(ch == 1):
-
-                print("\nEnter the number of trucks:- ")
-                T1 = int(input())
-                data[0]=T1
-                space-=data[0]*5
-
-            elif(ch == 2):
-
-                print("\nEnter the number of Unloaded Trollers:- ")
-                T31 = int(input())
-                data[1]=T31
-                space-=data[1]*7
-
-            elif(ch == 3):
-
-                print("\nEnter the number of Loaded Trollers:- ")
-                T32 = int(input())
-                data[2]=T32
-                space-=data[2]*7
-
-            elif(ch == 4):
-
-                print("\nEnter the number of Unloaded Tankers:- ")
-                T21 = int(input())
-                data[3]=T21
-                space-=data[3]*6
-
-            elif(ch == 5):
-
-                print("\nEnter the number of Loaded Tanker:- ")
-                T22 = int(input())
-                data[4]=T22
-                space-=data[4]*6
-
-            elif(ch == 6):
-
-                print("\nEnter the number of buses:- ")
-                B1 = int(input())
-                data[5]=B1
-                space-=data[5]*5
-        
-            elif(ch == 7):
-
-                print("\nEnter the number of cars :- ")
-                C1 = int(input())
-                data[6]=C1
-                space-=data[6]*2
-                
-            elif(ch == 8):
-
-                print("\nEnter the number of E-rickshaw:- ")
-                E = int(input())
-                data[7]=E
-                space-=data[7]*2
-                
-            elif(ch == 9):
-
-                print("\nEnter the number of Tempos:- ")
-                T4 = int(input())
-                data[8]=T4
-                space-=data[8]*2
-               
-            elif(ch == 10):
-
-                print("\nEnter the number of Bikes & scooty:- ")
-                B2 = int(input())
-                data[9]=B2
-                space-=data[9]*1
-                
-            elif(ch == 11):
-
-                print("\nEnter the number of Cycles:- ")
-                C2 = int(input())
-                data[10]=C2
-                space-=data[10]*1
-                
-        vehicles=0
-        j=0
-        while(j<11):
-
-            vehicles+=data[j]
-            j+=1
-
-        file.write("\t")
-        file.write(str(data))
-        file.write("\tVehicles:- ")
-        file.write(str(vehicles))
-        file.write("\tCongession:- ")
-        file.write(str(con))
-
-        r.append(road(space,con,vehicles,data))
-        i+=1
-    file.close()
+    while(a<4):
+        i=0
+        while(i<11):
+            j=0
+            print("a=",a," j=",j," i=",i)
+            while(j<r[a].data[i]):
+                r[a].unplaced.append(i)
+                j+=1
+            random.shuffle(r[a].unplaced)
+            i+=1
+        a+=1
+    print("parse r[i].unplaced and pop the 0th index and give that a direction using vehicle class")
     i=0 
     while(i<4):
 
@@ -338,89 +401,34 @@ def main():
 
     i=0
     while(i<4):
-        
+            
         rows =24
-        r[i].x[:] = ''
         v=[]
         k=0
-        for j in r[i].unplaced:
-            if(j==0):
-                v.append(vehicle("T1",5))
-                dir=v[k].direction()
-                arange("T1",5,r[i].x,rows,dir)
-
-            elif(j==1):
-                v.append(vehicle("T31",7))
-                dir=v[k].direction()
-                arange("T31",7,r[i].x,rows,dir)
-            
-            elif(j==2):
-                v.append(vehicle("T32",7))
-                dir=v[k].direction()
-                arange("T32",7,r[i].x,rows,dir)
-
-            elif(j==3):
-                v.append(vehicle("T21",6))
-                dir=v[k].direction()
-                arange("T21",6,r[i].x,rows,dir)
-            
-            elif(j==4):
-                v.append(vehicle("T22",6))
-                dir=v[k].direction()
-                arange("T22",6,r[i].x,rows,dir)
-            
-            elif(j==5):
-                v.append(vehicle("B1",5))
-                dir=v[k].direction()
-                arange("B1",5,r[i].x,rows,dir)
-            
-            elif(j==6):
-                v.append(vehicle("C1",2))
-                dir=v[k].direction()
-                arange('C1',2,r[i].x,rows,dir)
-            
-            elif(j==7):
-                v.append(vehicle("T4",2))
-                dir=v[k].direction()
-                arange("T4",2,r[i].x,rows,dir)
-            
-            elif(j==8):
-                v.append(vehicle("E",2))
-                dir=v[k].direction()
-                arange("E",2,r[i].x,rows,dir)
-        
-            elif(j==9):
-                v.append(vehicle("B2",1))
-                dir=v[k].direction()
-                arange("B2",1,r[i].x,rows,dir)
-            
-            elif(j==10):
-                v.append(vehicle("C2",1))
-                dir=v[k].direction()
-                arange("C2",1,r[i].x,rows,dir)
-
-            else:
-                pass
-            k+=1
-            
+        print("arrange left waiting")
+        wait=r[i].waitL
+        r[i].waitL=[]
+        print(wait)
+        print(r[i].waitL)
+        sleep(2)
+        getvehicle(v,wait,"L",rows,i)
+        r[i].waitS=[]
+        print("arrange straight waiting")
+        wait=r[i].waitS
+        getvehicle(v,wait,"S",rows,i)
+        print("arrange right waiting")
+        wait=r[i].waitR
+        r[i].waitR=[]
+        getvehicle(v,wait,"R",rows,i)
+        if(r[i].waitL.__len__()==0 and r[i].waitS.__len__()==0 and r[i].waitR.__len__()==0):
+            print("arranging new")
+            getvehicle(v,r[i].unplaced,"N",rows,i)
+                
         print("\n\tArrangement of road ",i+1," is :- ")
         print(r[i].x)
         r[i].Merge()
         print("\n\t After Merging Bikes & Cycles :- \n" , r[i].x)
         i+=1
-    
-    # if((source==1 and destination==2) or (source==2 and destination==3) or (source==3 and destination==4) or (source==4 and destination==2)):
-
-    #     movementLeft()
-    
-    # if((source==1 and destination==3) or (source==2 and destination==4) or (source==3 and destination==1) or (source==4 and destination==2)):
-
-    #     movementStraight()
-    
-    # if((source==1 and destination==4) or (source==2 and destination==1) or (source==3 and destination==2) or (source==4 and destination==3)):
-
-    #     movementRight()
-    
     i=0
     while(i<4):
 
@@ -439,5 +447,21 @@ def main():
             movementLane(r[i].x,rows ,j,r[i].sp)
             j+=1
         i+=1
-    mainSignal(r)
+    mainSignal(r,time)
+    print("sp successfully defined")
+    print("traffic moved successfully")
+    # print("to continue press y")
+    # cv=input()
+    # if(cv=='y'):ice"))
+    sleep(5)
+    main()
+r=[]
+data=[0,0,0,0,0,0,0,0,0,0,0]
+vehicles=0
+con=0
+space=0
+i=0
+while(i<4):
+    r.append(road(space,con,vehicle,data))
+    i+=1
 main()
