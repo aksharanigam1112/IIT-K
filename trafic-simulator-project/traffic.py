@@ -93,19 +93,6 @@ class road:
         self.waitS=[]
         self.waitR=[]
         
-        # i=0
-        # while(i<11):
-        #     j=0
-        #     while(j<data[i]):
-        #         self.unplaced.append(i)
-        #         j+=1
-        #     i+=1
-        
-        # random.shuffle(self.unplaced)
-
-    # @classmethod
-    # def defaultConst(self):
-    #     pass
 
     def Display(self):
 
@@ -147,7 +134,6 @@ class road:
         self.con = self.space / SIZE
         print("\nTotal Vehicles = ", self.vehicles)
         print("\nCongestion = ", self.con)
-        #print(self.unplaced)
 
     def fillGap(self , arr , i , j):
         while(i<24 and arr[i+1][j]!=''):
@@ -246,10 +232,7 @@ class road:
                     self.bike[2]+=1
                     self.bike[3]+=self.bike[0]
                     self.cycle[2]+=1
-                    # self.cycle[3]+=self.cycle[0]
                     j+=self.bike[0]
-                # else:
-                #     j=25
             k+=1
         self.vehicles=self.truck[2]+self.utroller[2]+self.ltroller[2]+self.utanker[2]+self.ltanker[2]+self.bus[2]+self.car[2]+self.tempo[2]+self.erick[2]+self.bike[2]+self.cycle[2]
         self.space=self.truck[3]+self.utroller[3]+self.ltroller[3]+self.utanker[3]+self.ltanker[3]+self.bus[3]+self.car[3]+self.tempo[3]+self.erick[3]+self.bike[3]+self.cycle[3]
@@ -306,8 +289,6 @@ def getvehicle(v,wait,dir,rows,i):
                         r[i].waitS.append(j)
                     else:
                         r[i].waitR.append(j)
-                    # r[i].truck[2]-=1
-                    # r[i].truck[3]-=5
             else:
                 sp +=5
                 veh+=1
@@ -325,8 +306,6 @@ def getvehicle(v,wait,dir,rows,i):
                     r[i].waitS.append(j)
                 else:
                     r[i].waitR.append(j)
-                # r[i].utroller[2]-=1
-                # r[i].utroller[3]-=7
             else:
                 sp +=7
                 veh+=1
@@ -345,8 +324,6 @@ def getvehicle(v,wait,dir,rows,i):
                     r[i].waitS.append(j)
                 else:
                     r[i].waitR.append(j)
-                # r[i].ltroller[2]-=1
-                # r[i].ltroller[3]-=7
             else:
                 sp +=7
                 veh+=1
@@ -365,8 +342,6 @@ def getvehicle(v,wait,dir,rows,i):
                     r[i].waitS.append(j)
                 else:
                     r[i].waitR.append(j)
-                # r[i].utanker[2]-=1
-                # r[i].utanker[3]-=6
             else:
                 sp +=6
                 veh+=1
@@ -385,8 +360,6 @@ def getvehicle(v,wait,dir,rows,i):
                     r[i].waitS.append(j)
                 else:
                     r[i].waitR.append(j)
-                # r[i].ltanker[2]-=1
-                # r[i].ltanker[3]-=6
             else:
                 sp +=6
                 veh+=1
@@ -405,8 +378,6 @@ def getvehicle(v,wait,dir,rows,i):
                     r[i].waitS.append(j)
                 else:
                     r[i].waitR.append(j)
-                # r[i].bus[2]-=1
-                # r[i].bus[3]-=5
             else:
                 sp +=5
                 veh+=1
@@ -425,8 +396,6 @@ def getvehicle(v,wait,dir,rows,i):
                     r[i].waitS.append(j)
                 else:
                     r[i].waitR.append(j)
-                # r[i].car[2]-=1
-                # r[i].car[3]-=2
             else:
                 sp +=2
                 veh+=1
@@ -445,8 +414,6 @@ def getvehicle(v,wait,dir,rows,i):
                     r[i].waitS.append(j)
                 else:
                     r[i].waitR.append(j)
-                # r[i].tempo[2]-=1
-                # r[i].tempo[3]-=2
             else:
                 sp +=2
                 veh+=1
@@ -465,8 +432,6 @@ def getvehicle(v,wait,dir,rows,i):
                     r[i].waitS.append(j)
                 else:
                     r[i].waitR.append(j)
-                # r[i].erick[2]-=1
-                # r[i].erick[3]-=2
             else:
                 sp +=2
                 veh+=1
@@ -485,8 +450,6 @@ def getvehicle(v,wait,dir,rows,i):
                     r[i].waitS.append(j)
                 else:
                     r[i].waitR.append(j)
-                # r[i].bike[2]-=1
-                # r[i].bike[3]-=1
             else:
                 sp +=1
                 veh+=1
@@ -505,19 +468,12 @@ def getvehicle(v,wait,dir,rows,i):
                     r[i].waitS.append(j)
                 else:
                     r[i].waitR.append(j)
-                # r[i].cycle[2]-=1
-                # r[i].cycle[3]-=1
             else:
                 sp +=1
                 veh+=1
         else:
             pass
         k+=1
-    # print("test2")
-    # r[i].countveh()
-    # r[i].vehicles=r[i].truck[2]+r[i].utroller[2]+r[i].ltroller[2]+r[i].utanker[2]+r[i].ltanker[2]+r[i].bus[2]+r[i].car[2]+r[i].tempo[2]+r[i].erick[2]+r[i].bike[2]+r[i].cycle[2]
-    # r[i].space=r[i].truck[3]+r[i].utroller[3]+r[i].ltroller[3]+r[i].utanker[3]+r[i].ltanker[3]+r[i].bus[3]+r[i].car[3]+r[i].tempo[3]+r[i].erick[3]+r[i].bike[3]+r[i].cycle[3]
-    # r[i].con = r[i].space / SIZE
 
 def userInput():
     print("\n\tEnter the values in following format:- ")
@@ -553,7 +509,6 @@ def userInput():
     return ("user-input.txt")
 
 def main():
-    # print("in main")
     now = datetime.now()
     current_time = now.strftime("%H")
     time=int(current_time)
@@ -575,7 +530,6 @@ def main():
     else:
         print("Hope you liked it")
         quit()
-    # print("place r[i].data into r[i].unplaced and shuffle it")
     a=0
     i=0
     while(a<4):
@@ -589,7 +543,6 @@ def main():
             random.shuffle(r[a].unplaced)
             i+=1
         a+=1
-    # print("parse r[i].unplaced and pop the 0th index and give that a direction using vehicle class")
     i=0 
     while(i<4):
 
@@ -606,23 +559,18 @@ def main():
         print("arrange left waiting")
         wait=r[i].waitL
         r[i].waitL=[]
-        # print(wait)
         sleep(2)
-        # print("test")
         getvehicle(v,wait,"L",rows,i)
         print("arrange straight waiting")
         wait=r[i].waitS
         r[i].waitS=[]
-        # print(wait)
         sleep(2)
         getvehicle(v,wait,"S",rows,i)
         print("arrange right waiting")
         wait=r[i].waitR
         r[i].waitR=[]
-        # print(wait)
         sleep(2)
         getvehicle(v,wait,"R",rows,i)
-        # if(r[i].waitL.__len__()==0 and r[i].waitS.__len__()==0 and r[i].waitR.__len__()==0):
         print("arranging new")
         getvehicle(v,r[i].unplaced,"N",rows,i)
                 
@@ -630,7 +578,6 @@ def main():
         print(r[i].x)
         r[i].Merge()
         print("\n\t After Merging Bikes & Cycles :- \n" , r[i].x)
-        # r[i].countveh()
         i+=1
     i=0
     while(i<4):
@@ -649,7 +596,6 @@ def main():
 
             movementLane(r[i].x,rows ,j,r[i].sp)
             j+=1
-        # r[i].countveh()
         i+=1
     mainSignal(r,time)
     i=0
@@ -658,11 +604,6 @@ def main():
         r[i].countveh()
         print(r[i].x)
         i+=1
-    # print("sp successfully defined")
-    # print("traffic moved successfully")
-    # print("to continue press y")
-    # cv=input()
-    # if(cv=='y'):ice"))
     sleep(5)
     main()
 r=[]

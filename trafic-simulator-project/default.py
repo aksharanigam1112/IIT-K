@@ -3,7 +3,6 @@ import numpy as np
 import os
 import math
 from time import sleep
-# for files in os.listdir()
 SIZE= 75
 def inflow(road,file):
     i=0
@@ -133,16 +132,6 @@ def inflow(road,file):
                 road[i].cycle[3]=road[i].cycle[2]*road[i].cycle[0]
                 space-=road[i].data[10]*road[i].cycle[0]
        
-        # vehicles=0
-        # data=road[i].data
-        # print(road[i].data)
-        # sleep(3)
-        # j=0
-        # while(j<11):
-
-        #     vehicles+=data[j]
-        #     j+=1
-        # road[i].vehicles+=vehicles
         i+=1
     files.close()
 

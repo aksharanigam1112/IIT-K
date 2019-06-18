@@ -117,7 +117,6 @@ def movementLane(arr , rows , j,sp):
 
     i=0
     speed =0
-    #print(arr)
     while(i<rows):
 
         #For Cycle , Loaded Tanker & Loaded Troller
