@@ -150,7 +150,7 @@ class Signal:
                 while(j<3):
                     k = 0
                     while(k<25):
-                        if(r[i].x[k][j] != '' and r[i].x[k][j] == 'T1' and j == 1):
+                        if(r[i].x[k][j] != '' and r[i].x[k][j] == 'T1'):
                             print("Truck from road ",i+1," and of straight lane will pass")
                             n = k
                             while(n<=(k+5)):
@@ -158,39 +158,39 @@ class Signal:
                                 n+=1
                             k+=5
                             
-                        elif(r[i].x[k][j] != '' and r[i].x[k][j] == 'T22' and j == 1):
+                        elif(r[i].x[k][j] != '' and r[i].x[k][j] == 'T22' ):
                             print("Loaded Tanker from road ",i+1," and of straight lane will pass")
                             n = k
-                            while(n<=(k+7)):
+                            while(n<=(k+6)):
                                 r[i].x[n][j] = ''
                                 n+=1
                             k += 6
 
-                        elif(r[i].x[k][j] != '' and r[i].x[k][j] == 'T21' and j == 1):
+                        elif(r[i].x[k][j] != '' and r[i].x[k][j] == 'T21' ):
                             print("Unloaded Tanker from road ",i+1," and of straight lane will pass")
                             n = k
-                            while(n<=(k+7)):
+                            while(n<=(k+6)):
                                 r[i].x[n][j] = ''
                                 n+=1
                             k += 6
 
-                        elif(r[i].x[k][j] != '' and r[i].x[k][j] == 'T32' and j == 1):
+                        elif(r[i].x[k][j] != '' and r[i].x[k][j] == 'T32' ):
                             print("Loaded Troller from road ",i+1," and of straight lane will pass")
                             n = k
-                            while(n<=(k+6)):
+                            while(n<=(k+7)):
                                 r[i].x[n][j] = ''
                                 n+=1
                             k+=7
 
-                        elif(r[i].x[k][j] != '' and r[i].x[k][j] == 'T31' and j == 1):
+                        elif(r[i].x[k][j] != '' and r[i].x[k][j] == 'T31'):
                             print("Unloaded Tanker from road ",i+1," and of straight lane will pass")
                             n = k
-                            while(n<=(k+6)):
+                            while(n<=(k+7)):
                                 r[i].x[n][j] = ''
                                 n+=1
                             k+=7
 
-                        elif(r[i].x[k][j] != '' and r[i].x[k][j] == 'B1' and j == 1):
+                        elif(r[i].x[k][j] != '' and r[i].x[k][j] == 'B1'):
                             print("Bus from road ",i+1," and of straight lane will pass")
                             n = k
                             while(n<=(k+5)):
@@ -198,7 +198,7 @@ class Signal:
                                 n+=1
                             k+=5
 
-                        elif(r[i].x[k][j] != '' and r[i].x[k][j] == 'C1' and j == 1):
+                        elif(r[i].x[k][j] != '' and r[i].x[k][j] == 'C1' ):
                             print("Car from road ",i+1," and of straight lane will pass")
                             n = k
                             while(n<=(k+2)):
@@ -206,7 +206,7 @@ class Signal:
                                 n+=1
                             k+=2
 
-                        elif(r[i].x[k][j] != '' and r[i].x[k][j] == 'E' and j == 1):
+                        elif(r[i].x[k][j] != '' and r[i].x[k][j] == 'E'):
                             print("E-Rickshaw from road ",i+1," and of straight lane will pass")
                             n = k
                             while(n<=(k+2)):
@@ -214,7 +214,7 @@ class Signal:
                                 n+=1
                             k+=2
 
-                        elif(r[i].x[k][j] != '' and r[i].x[k][j] == 'T4' and j == 1):
+                        elif(r[i].x[k][j] != '' and r[i].x[k][j] == 'T4' ):
                             print("Tempo from road ",i+1," and of straight lane will pass")
                             n = k
                             while(n<=(k+2)):
@@ -222,7 +222,7 @@ class Signal:
                                 n+=1
                             k+=2
 
-                        elif(r[i].x[k][j] != '' and r[i].x[k][j] == 'B2' and j == 1):
+                        elif(r[i].x[k][j] != '' and r[i].x[k][j] == 'B2'):
                             print("Bike/Scooty from road ",i+1," and of straight lane will pass")
                             n = k
                             while(n<=(k+1)):
@@ -230,7 +230,7 @@ class Signal:
                                 n+=1
                             k+=1
 
-                        elif(r[i].x[k][j] != '' and r[i].x[k][j] == 'C2' and j == 1):
+                        elif(r[i].x[k][j] != '' and r[i].x[k][j] == 'C2' ):
                             print("Cycle from road ",i+1," and of straight lane will pass")
                             n = k
                             while(n<=(k+1)):
@@ -238,98 +238,98 @@ class Signal:
                                 n+=1
                             k+=1
 
-                        elif(r[i].x[k][j] != '' and r[i].x[k][j] == 'T1' and j == 2):
-                            print("Truck from road ",i+1," and of right lane will pass")
-                            n = k
-                            while(n<=(k+5)):
-                                r[i].x[n][j] = ''
-                                n+=1
-                            k+=5
+                        # elif(r[i].x[k][j] != '' and r[i].x[k][j] == 'T1' and j == 2):
+                        #     print("Truck from road ",i+1," and of right lane will pass")
+                        #     n = k
+                        #     while(n<=(k+5)):
+                        #         r[i].x[n][j] = ''
+                        #         n+=1
+                        #     k+=5
 
-                        elif(r[i].x[k][j] != '' and r[i].x[k][j] == 'T22' and j == 2):
-                            print("Loaded Tanker from road ",i+1," and of right lane will pass")
-                            n = k
-                            while(n<=(k+7)):
-                                r[i].x[n][j] = ''
-                                n+=1
-                            k += 6
+                        # elif(r[i].x[k][j] != '' and r[i].x[k][j] == 'T22' and j == 2):
+                        #     print("Loaded Tanker from road ",i+1," and of right lane will pass")
+                        #     n = k
+                        #     while(n<=(k+6)):
+                        #         r[i].x[n][j] = ''
+                        #         n+=1
+                        #     k += 6
 
-                        elif(r[i].x[k][j] != '' and r[i].x[k][j] == 'T21' and j == 2):
-                            print("Unloaded Tanker from road ",i+1," and of right lane will pass")
-                            n = k
-                            while(n<=(k+7)):
-                                r[i].x[n][j] = ''
-                                n+=1
-                            k += 6
+                        # elif(r[i].x[k][j] != '' and r[i].x[k][j] == 'T21' and j == 2):
+                        #     print("Unloaded Tanker from road ",i+1," and of right lane will pass")
+                        #     n = k
+                        #     while(n<=(k+6)):
+                        #         r[i].x[n][j] = ''
+                        #         n+=1
+                        #     k += 6
 
-                        elif(r[i].x[k][j] != '' and r[i].x[k][j] == 'T32' and j == 2):
-                            print("Loaded Troller from road ",i+1," and of right lane will pass")
-                            n = k
-                            while(n<=(k+6)):
-                                r[i].x[n][j] = ''
-                                n+=1
-                            k+=7
+                        # elif(r[i].x[k][j] != '' and r[i].x[k][j] == 'T32' and j == 2):
+                        #     print("Loaded Troller from road ",i+1," and of right lane will pass")
+                        #     n = k
+                        #     while(n<=(k+7)):
+                        #         r[i].x[n][j] = ''
+                        #         n+=1
+                        #     k+=7
 
-                        elif(r[i].x[k][j] != '' and r[i].x[k][j] == 'T31' and j == 2):
-                            print("Unloaded Troller from road ",i+1," and of right lane will pass")
-                            n = k
-                            while(n<=(k+6)):
-                                r[i].x[n][j] = ''
-                                n+=1
-                            k+=7
+                        # elif(r[i].x[k][j] != '' and r[i].x[k][j] == 'T31' and j == 2):
+                        #     print("Unloaded Troller from road ",i+1," and of right lane will pass")
+                        #     n = k
+                        #     while(n<=(k+7)):
+                        #         r[i].x[n][j] = ''
+                        #         n+=1
+                        #     k+=7
 
-                        elif(r[i].x[k][j] != '' and r[i].x[k][j] == 'B1' and j == 2):
-                            print("Bus from road ",i+1," and of right lane will pass")
-                            n = k
-                            while(n<=(k+5)):
-                                r[i].x[n][j] = ''
-                                n+=1
-                            k+=5
+                        # elif(r[i].x[k][j] != '' and r[i].x[k][j] == 'B1' and j == 2):
+                        #     print("Bus from road ",i+1," and of right lane will pass")
+                        #     n = k
+                        #     while(n<=(k+5)):
+                        #         r[i].x[n][j] = ''
+                        #         n+=1
+                        #     k+=5
 
-                        elif(r[i].x[k][j] != '' and r[i].x[k][j] == 'C1' and j == 2):
-                            print("Car from road ",i+1," and of right lane will pass")
-                            n = k
-                            while(n<=(k+2)):
-                                r[i].x[n][j] = ''
-                                n+=1
-                            k+=2
+                        # elif(r[i].x[k][j] != '' and r[i].x[k][j] == 'C1' and j == 2):
+                        #     print("Car from road ",i+1," and of right lane will pass")
+                        #     n = k
+                        #     while(n<=(k+2)):
+                        #         r[i].x[n][j] = ''
+                        #         n+=1
+                        #     k+=2
 
-                        elif(r[i].x[k][j] != '' and r[i].x[k][j] == 'E' and j == 2):
-                            print("E-Rickshaw from road ",i+1," and of right lane will pass")
-                            n = k
-                            while(n<=(k+2)):
-                                r[i].x[n][j] = ''
-                                n+=1
-                            k+=2
+                        # elif(r[i].x[k][j] != '' and r[i].x[k][j] == 'E' and j == 2):
+                        #     print("E-Rickshaw from road ",i+1," and of right lane will pass")
+                        #     n = k
+                        #     while(n<=(k+2)):
+                        #         r[i].x[n][j] = ''
+                        #         n+=1
+                        #     k+=2
 
-                        elif(r[i].x[k][j] != '' and r[i].x[k][j] == 'T4' and j == 2):
-                            print("Tempo from road ",i+1," and of right lane will pass")
-                            n = k
-                            while(n<=(k+2)):
-                                r[i].x[n][j] = ''
-                                n+=1
-                            k+=2
+                        # elif(r[i].x[k][j] != '' and r[i].x[k][j] == 'T4' and j == 2):
+                        #     print("Tempo from road ",i+1," and of right lane will pass")
+                        #     n = k
+                        #     while(n<=(k+2)):
+                        #         r[i].x[n][j] = ''
+                        #         n+=1
+                        #     k+=2
 
-                        elif(r[i].x[k][j] != '' and r[i].x[k][j] == 'TB2' and j == 2):
-                            print("Bike/Scooty from road ",i+1," and of right lane will pass")
-                            n = k
-                            while(n<=(k+1)):
-                                r[i].x[n][j] = ''
-                                n+=1
-                            k+=1
+                        # elif(r[i].x[k][j] != '' and r[i].x[k][j] == 'TB2' and j == 2):
+                        #     print("Bike/Scooty from road ",i+1," and of right lane will pass")
+                        #     n = k
+                        #     while(n<=(k+1)):
+                        #         r[i].x[n][j] = ''
+                        #         n+=1
+                        #     k+=1
                         
-                        elif(r[i].x[k][j] != '' and r[i].x[k][j] == 'TC2' and j == 2):
-                            print("Cycle from road ",i+1," and of right lane will pass")
-                            n = k
-                            while(n<=(k+1)):
-                                r[i].x[n][j] = ''
-                                n+=1
-                            k+=1
+                        # elif(r[i].x[k][j] != '' and r[i].x[k][j] == 'TC2' and j == 2):
+                        #     print("Cycle from road ",i+1," and of right lane will pass")
+                        #     n = k
+                        #     while(n<=(k+1)):
+                        #         r[i].x[n][j] = ''
+                        #         n+=1
+                        #     k+=1
 
-                        else:
-                            pass
+                        # else:
+                        #     pass
                     j += 1
-                    self.moveForward(r[i].x,i,r)
+                self.moveForward(r[i].x,i,r)
                 i += 1
 
     def lightGreen(self,i ,r):
