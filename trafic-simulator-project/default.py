@@ -9,8 +9,8 @@ def inflow(road,file):
     files=open(file,"r")
     while(i<4):
         
-        print("\n\t\tEnter the details for road ",i+1)
-        print("\n\tUnit of space occupied:- ")
+        # print("\n\t\tEnter the details for road ",i+1)
+        # print("\n\tUnit of space occupied:- ")
         
         q=files.readline()
         space = int(files.readline())
@@ -19,23 +19,23 @@ def inflow(road,file):
         road[i].data=[0,0,0,0,0,0,0,0,0,0,0]
         while(space > 0):
 
-            print("\n\tTruck...1")                  #T1
-            print("\n\tUnloaded Troller...2")       #T31
-            print("\n\tLoaded Troller...3")         #T32
-            print("\n\tUnloaded Tanker...4")        #T21
-            print("\n\tLoaded Tanker...5")          #T22
-            print("\n\tBuses...6")                  #B1
-            print("\n\tCars...7")                   #C1
-            print("\n\tE-Rickshaw...8")             #E
-            print("\n\tTempo...9")                  #T4
-            print("\n\tBikes & Scooty...10")        #B2
-            print("\n\tCycles...11")                #C2
-            print("\nEnter your choice:- ")
+            # print("\n\tTruck...1")                  #T1
+            # print("\n\tUnloaded Troller...2")       #T31
+            # print("\n\tLoaded Troller...3")         #T32
+            # print("\n\tUnloaded Tanker...4")        #T21
+            # print("\n\tLoaded Tanker...5")          #T22
+            # print("\n\tBuses...6")                  #B1
+            # print("\n\tCars...7")                   #C1
+            # print("\n\tE-Rickshaw...8")             #E
+            # print("\n\tTempo...9")                  #T4
+            # print("\n\tBikes & Scooty...10")        #B2
+            # print("\n\tCycles...11")                #C2
+            # print("\nEnter your choice:- ")
             ch = int(files.readline())
         
             if(ch == 1):
 
-                print("\nEnter the number of trucks:- ")
+                # print("\nEnter the number of trucks:- ")
                 T1 = int(files.readline())
                 road[i].data[0]=T1
                 road[i].truck[2]+=T1
@@ -44,7 +44,7 @@ def inflow(road,file):
 
             elif(ch == 2):
 
-                print("\nEnter the number of Unloaded Trollers:- ")
+                # print("\nEnter the number of Unloaded Trollers:- ")
                 T31 = int(files.readline())
                 road[i].data[1]=T31
                 road[i].utroller[2]+=T31
@@ -53,7 +53,7 @@ def inflow(road,file):
 
             elif(ch == 3):
 
-                print("\nEnter the number of Loaded Trollers:- ")
+                # print("\nEnter the number of Loaded Trollers:- ")
                 T32 = int(files.readline())
                 road[i].data[2]=T32
                 road[i].ltroller[2]+=T32
@@ -62,7 +62,7 @@ def inflow(road,file):
 
             elif(ch == 4):
 
-                print("\nEnter the number of Unloaded Tankers:- ")
+                # print("\nEnter the number of Unloaded Tankers:- ")
                 T21 = int(files.readline())
                 road[i].data[3]=T21
                 road[i].utanker[2]+=T21
@@ -71,7 +71,7 @@ def inflow(road,file):
 
             elif(ch == 5):
 
-                print("\nEnter the number of Loaded Tanker:- ")
+                # print("\nEnter the number of Loaded Tanker:- ")
                 T22 = int(files.readline())
                 road[i].data[4]=T22
                 road[i].ltanker[2]+=T22
@@ -80,7 +80,7 @@ def inflow(road,file):
 
             elif(ch == 6):
 
-                print("\nEnter the number of buses:- ")
+                # print("\nEnter the number of buses:- ")
                 B1 = int(files.readline())
                 road[i].data[5]=B1
                 road[i].bus[2]+=B1
@@ -89,7 +89,7 @@ def inflow(road,file):
             
             elif(ch == 7):
 
-                print("\nEnter the number of cars :- ")
+                # print("\nEnter the number of cars :- ")
                 C1 = int(files.readline())
                 road[i].data[6]=C1
                 road[i].car[2]+=C1
@@ -98,7 +98,7 @@ def inflow(road,file):
                     
             elif(ch == 8):
 
-                print("\nEnter the number of E-rickshaw:- ")
+                # print("\nEnter the number of E-rickshaw:- ")
                 E = int(files.readline())
                 road[i].data[7]=E
                 road[i].erick[2]+=E
@@ -107,7 +107,7 @@ def inflow(road,file):
                     
             elif(ch == 9):
 
-                print("\nEnter the number of Tempos:- ")
+                # print("\nEnter the number of Tempos:- ")
                 T4 = int(files.readline())
                 road[i].data[8]=T4
                 road[i].tempo[2]+=T4
@@ -116,7 +116,7 @@ def inflow(road,file):
                 
             elif(ch == 10):
 
-                print("\nEnter the number of Bikes & scooty:- ")
+                # print("\nEnter the number of Bikes & scooty:- ")
                 B2 = int(files.readline())
                 road[i].data[9]=B2
                 road[i].bike[2]+=B2
@@ -125,7 +125,7 @@ def inflow(road,file):
                     
             elif(ch == 11):
 
-                print("\nEnter the number of Cycles:- ")
+                # print("\nEnter the number of Cycles:- ")
                 C2 = int(files.readline())
                 road[i].data[10]=C2
                 road[i].cycle[2]+=C2
