@@ -574,10 +574,10 @@ def main():
         print("arranging new")
         getvehicle(v,r[i].unplaced,"N",rows,i)
                 
-        print("\n\tArrangement of road ",i+1," is :- ")
-        print(r[i].x)
+        # print("\n\tArrangement of road ",i+1," is :- ")
+        # print(r[i].x)
         r[i].Merge()
-        print("\n\t After Merging Bikes & Cycles :- \n" , r[i].x)
+        print("\n\t Arrangement of road on Merging Bikes & Cycles :- \n" , r[i].x)
         i+=1
     i=0
     while(i<4):
@@ -600,7 +600,7 @@ def main():
     mainSignal(r,time)
     i=0
     while(i<4):
-        print("for road ",i+1)
+        print("\nFor road ",i+1)
         r[i].countveh()
         print(r[i].x)
         i+=1
