@@ -171,63 +171,77 @@ class road:
             # print("test3")
             while(j<25 and self.x[j][k]!=''):
                 # print("j=",j)
-                print(self.x[j][k])
+                #print(self.x[j][k])
                 if(self.x[j][k]=='T1'):
                     self.truck[2]+=1
                     self.truck[3]+=self.truck[0]
                     j+=self.truck[0]
+
                 elif(self.x[j][k]=='T31'):
                     self.utroller[2]+=1
                     self.utroller[3]+=self.utroller[0]
                     j+=self.utroller[0]
+
                 elif(self.x[j][k]=='T32'):
                     self.ltroller[2]+=1
                     self.ltroller[3]+=self.ltroller[0]
                     j+=self.ltroller[0]
+
                 elif(self.x[j][k]=='T21'):
                     self.utanker[2]+=1
                     self.utanker[3]+=self.utanker[0]
                     j+=self.utanker[0]
+
                 elif(self.x[j][k]=='T22'):
                     self.ltanker[2]+=1
                     self.ltanker[3]+=self.ltanker[0]
                     j+=self.ltanker[0]
+
                 elif(self.x[j][k]=='B1'):
                     self.bus[2]+=1
                     self.bus[3]+=self.bus[0]
                     j+=self.bus[0]
+
                 elif(self.x[j][k]=='C1'):
                     self.car[2]+=1
                     self.car[3]+=self.car[0]
                     j+=self.car[0]
+
                 elif(self.x[j][k]=='T4'):
                     self.tempo[2]+=1
                     self.tempo[3]+=self.tempo[0]
                     j+=self.tempo[0]
+
                 elif(self.x[j][k]=='E'):
                     self.erick[2]+=1
                     self.erick[3]+=self.erick[0]
                     j+=self.erick[0]
+
                 elif(self.x[j][k]=='B2'):
                     self.bike[2]+=1
                     self.bike[3]+=self.bike[0]
                     j+=self.bike[0]
+
                 elif(self.x[j][k]=='C2'):
                     self.cycle[2]+=1
                     self.cycle[3]+=self.cycle[0]
                     j+=self.cycle[0]
+
                 elif(self.x[j][k]=='C2C2'):
                     self.cycle[2]+=2
                     self.cycle[3]+=self.cycle[0]
                     j+=self.cycle[0]
+
                 elif(self.x[j][k]=='C2C2C2'):
                     self.cycle[2]+=3
                     self.cycle[3]+=self.cycle[0]
                     j+=self.cycle[0]
+                    
                 elif(self.x[j][k]=='B2B2'):
                     self.bike[2]+=2
                     self.bike[3]+=self.bike[0]
                     j+=self.bike[0]
+
                 elif(self.x[j][k]=='B2C2' or self.x[j][k]=='C2B2'):
                     self.bike[2]+=1
                     self.bike[3]+=self.bike[0]
@@ -272,7 +286,14 @@ def getvehicle(v,wait,dir,rows,i):
     k=0
     veh=0
     sp=0
+    if(dir=='N'):
+        flag1 =True
+        
     for j in wait:
+        
+        if(flag1==True):
+            dir='N'
+
         flag=True
         if(j==0):
             v.append(vehicle("T1",5))
@@ -537,7 +558,7 @@ def main():
         while(i<11):
             j=0
             while(j<r[a].data[i]):
-                print("a=",a," j=",j," i=",i)
+                # print("a=",a," j=",j," i=",i)
                 r[a].unplaced.append(i)
                 j+=1
             random.shuffle(r[a].unplaced)
@@ -587,12 +608,12 @@ def main():
         j=0
         while(j<3):
 
-            if(j==0):
-                print("\n\t\tFor Lane Moving Left")
-            elif(j==1):
-                print("\n\t\tFor Lane Moving Straight")
-            elif(j==2):
-                print("\n\t\tFor Lane Moving Right")
+            # if(j==0):
+            #     print("\n\t\tFor Lane Moving Left")
+            # elif(j==1):
+            #     print("\n\t\tFor Lane Moving Straight")
+            # elif(j==2):
+            #     print("\n\t\tFor Lane Moving Right")
 
             movementLane(r[i].x,rows ,j,r[i].sp)
             j+=1
