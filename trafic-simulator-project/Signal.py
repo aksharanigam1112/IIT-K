@@ -333,7 +333,7 @@ class Signal:
                 i += 1
 
     def lightGreen(self,i ,r):
-        j=1
+        j=13
         scaling=10
         while(j<3):
 

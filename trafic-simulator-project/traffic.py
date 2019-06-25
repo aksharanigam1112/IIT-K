@@ -1,5 +1,5 @@
 import random
-from Movement import arange,movementLane
+from Movement import arange,movementLane,inRightLaneMovingRight,inRightLaneMovingStraight,inCenterLaneMovingRight,inCenterLaneMovingStraight
 from Signal import mainSignal
 from time import sleep
 import numpy as np
@@ -581,6 +581,10 @@ def main():
         wait=r[i].waitL
         r[i].waitL=[]
         sleep(2)
+        inCenterLaneMovingStraight()
+        inCenterLaneMovingRight()
+        inRightLaneMovingStraight()
+        inRightLaneMovingRight()
         getvehicle(v,wait,"L",rows,i)
         print("arrange straight waiting")
         wait=r[i].waitS
