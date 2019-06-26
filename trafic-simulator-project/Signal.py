@@ -399,7 +399,7 @@ class Signal:
             j+=1
         print("\n\t\tNew Arrangement for road ",(i+1),"\n")
         r[i].x=self.moveForward(r[i].x,i,r)
-        print("\nVehicles remaining on these two lanes:- ",r[i].vehicles)
+        # print("\nVehicles remaining on these two lanes:- ",r[i].vehicles)
 
 
         
@@ -413,7 +413,8 @@ def mainSignal(p,time):
     if(time>=6 and time<22):
         print("\n\t\tWhen Signal is given Clockwise")
         i=0
-        while(i<4):                         # For Clockwise Signal behaviour
+        while(i<4):  
+            sleep(3)                       # For Clockwise Signal behaviour
             print("\n\n\t\tSignal is Green for road ",(i+1),"\n")
             print("\n",p[i].x)
             #print("\n",p[i].sp)
@@ -432,6 +433,7 @@ def mainSignal(p,time):
         print("\n\n\t\tLeft lane movements")
         i=0
         while(i<4):
+            sleep(2)
             print("\n\tFor road ",i+1)
             s[i].MoveLeft(p[i].x,p[i].sp,i,p)
             print("\n\n",p[i].x)
@@ -441,4 +443,4 @@ def mainSignal(p,time):
         while(i<4):
             s[i].FCFS(colour,p)
             i+=1
-        print("call fcfs here")
+        # print("call fcfs here")
