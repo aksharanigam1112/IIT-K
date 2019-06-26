@@ -87,14 +87,6 @@ def arange( r,q,ch, space, x, rows,dir,iq):
     else:
         j=2
     
-
-def inCenterLaneMovingStraight():
-    print("\n No Hinderance will occur :-")
-    print("\nL S R")
-    print("\nL S S")
-    print("\nHinderance will occur when :-")
-    print("\nL S L")
-
 def inCenterLaneMovingRight():
     print("\n No Hinderance will occur :- ")
     print("\nL R R")
@@ -108,15 +100,13 @@ def inRightLaneMovingStraight():
     print("\nHinderances will occur when :- ")
     print("\nL R S")
 
-def inRightLaneMovingRight():
-    print("\n No Hinderances will occur :-")
-    print("\nL S R")
-    print("\nL R R")
+
 
 def movementLane(arr , rows , j,sp):
 
     i=0
     speed =0
+    print("\n\tFor lane ",j+1)  
     while(i<rows):
 
         #For Cycle , Loaded Tanker & Loaded Troller
