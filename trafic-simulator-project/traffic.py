@@ -1,5 +1,5 @@
 import random
-from Movement import arange,movementLane,inRightLaneMovingRight,inRightLaneMovingStraight,inCenterLaneMovingRight,inCenterLaneMovingStraight
+from Movement import arange,movementLane,inRightLaneMovingStraight,inCenterLaneMovingRight
 from Signal import mainSignal
 from time import sleep
 import numpy as np
@@ -499,17 +499,17 @@ def getvehicle(v,wait,dir,rows,i):
 def userInput():
     print("\n\tEnter the values in following format:- ")
     print("\n1) Write the word \'Road\' before the beginning of a new road followed by the space consumed by vehicles")
-    print("\nTruck...1")                  #T1
-    print("\nUnloaded Troller...2")       #T31
-    print("\nLoaded Troller...3")         #T32
-    print("\nUnloaded Tanker...4")        #T21
-    print("\nLoaded Tanker...5")          #T22
-    print("\nBuses...6")                  #B1
-    print("\nCars...7")                   #C1
-    print("\nE-Rickshaw...8")             #E
-    print("\nTempo...9")                  #T4
-    print("\nBikes & Scooty...10")        #B2
-    print("\nCycles...11")                #C2
+    print("\nTruck(5)...1")                  #T1
+    print("\nUnloaded Troller(7)...2")       #T31
+    print("\nLoaded Troller(7)...3")         #T32
+    print("\nUnloaded Tanker(6)...4")        #T21
+    print("\nLoaded Tanker(6)...5")          #T22
+    print("\nBuses(5)...6")                  #B1
+    print("\nCars(2)...7")                   #C1
+    print("\nE-Rickshaw(2)...8")             #E
+    print("\nTempo(2)...9")                  #T4
+    print("\nBikes & Scooty(1)...10")        #B2
+    print("\nCycles(1)...11")                #C2
     print("\n2) The first number gives the vehicle value and the number followed tells the quantity of that vehicle consumed on a road")
     print("\n\nStart Entering:- ")
 
@@ -549,7 +549,7 @@ def main():
     elif(ch==2):
         time=takeDefault(r)
     else:
-        print("Hope you liked it")
+        print("\n\n\tHope you liked it")
         quit()
     a=0
     i=0
@@ -558,7 +558,6 @@ def main():
         while(i<11):
             j=0
             while(j<r[a].data[i]):
-                # print("a=",a," j=",j," i=",i)
                 r[a].unplaced.append(i)
                 j+=1
             random.shuffle(r[a].unplaced)
@@ -566,7 +565,7 @@ def main():
         a+=1
     i=0 
     while(i<4):
-
+        sleep(2)
         print("\n\n\t\tDetails for road ",i+1," are:- ")
         r[i].Display()
         i+=1
@@ -577,55 +576,51 @@ def main():
         rows =24
         v=[]
         k=0
-        print("arrange left waiting")
+        print("\nArrange left waiting")
         wait=r[i].waitL
         r[i].waitL=[]
         sleep(2)
-        inCenterLaneMovingStraight()
-        inCenterLaneMovingRight()
-        inRightLaneMovingStraight()
-        inRightLaneMovingRight()
         getvehicle(v,wait,"L",rows,i)
-        print("arrange straight waiting")
+        print("\nArrange straight waiting")
         wait=r[i].waitS
         r[i].waitS=[]
         sleep(2)
         getvehicle(v,wait,"S",rows,i)
-        print("arrange right waiting")
+        print("\nArrange right waiting")
         wait=r[i].waitR
         r[i].waitR=[]
         sleep(2)
         getvehicle(v,wait,"R",rows,i)
-        print("arranging new")
+        print("\nArranging new")
         getvehicle(v,r[i].unplaced,"N",rows,i)
                 
         # print("\n\tArrangement of road ",i+1," is :- ")
         # print(r[i].x)
         r[i].Merge()
-        print("\n\t Arrangement of road on Merging Bikes & Cycles :- \n" , r[i].x)
+        print("\n\tArrangement of road ",i+1, " on Merging Bikes & Cycles :- \n" , r[i].x)
         i+=1
+    
+    print("\n\tIf Center Lane is moving Right\n")
+    inCenterLaneMovingRight()
+    print("\n\tRight Lane is Moving Straight\n")
+    inRightLaneMovingStraight()
+        
     i=0
     while(i<4):
 
-        print("\n\tFor road ",(i+1))
-
+        sleep(2)
+        print("\n\n\n\n\t\tFor road ",(i+1))
         j=0
         while(j<3):
-
-            # if(j==0):
-            #     print("\n\t\tFor Lane Moving Left")
-            # elif(j==1):
-            #     print("\n\t\tFor Lane Moving Straight")
-            # elif(j==2):
-            #     print("\n\t\tFor Lane Moving Right")
-
             movementLane(r[i].x,rows ,j,r[i].sp)
             j+=1
         i+=1
+
     mainSignal(r,time)
     i=0
     while(i<4):
-        print("\nFor road ",i+1)
+        sleep(1.5)
+        print("\n\tFor road ",i+1)
         r[i].countveh()
         print(r[i].x)
         i+=1
