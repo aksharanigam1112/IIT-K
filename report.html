@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Report</title>
+        <link href="report.css" rel="stylesheet" media="all">
+    </head>
+    <body>
+        <h1><center>Project Report</center></h1>
+        <br>
+        <div>
+            <p>
+                The project is based on the real life simulation of a round-about.
+                Here our observations about traffic signalling, traffic movement, jam causing factors and many more play a vital role.
+                We make use of <b>Weakest Chain problem</b> to decide the flow of the jam. Since the average speed of every vehicle is
+                different so there will be different speed for the movement of every lane.
+                <br>
+                The congestion for each road is calculated on the basis of the space consumed by the vehicles
+                divided by the total space of the road. Throughput is calculated by the number of vehicles previously occupying the
+                road minus the number of vehicles remaining.
+                <br>
+                For orange light at the night, First Come First Serve is also implemented. And also if vehicles entered are more
+                than the road can accomodate then they enter wait array. This array is cleared as soon as the vehicles start moving
+                when the Green Signal is given to the road.
+                <br>
+                Signalling is done in clockwise direction, and for anti-clockwise direction the congestion being cleared was similar.
+                Signal Time is also scalled because there maybe some variations when the traffic is being cleared.
+                So in the end Traffic Simulation is done.     
+            </p>
+        </div>
+    </body>
+</html>

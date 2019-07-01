@@ -1,0 +1,42 @@
+
+
+		Details for road 1 are:- 
+
+No. of trucks = 1 & space consumed = 5
+No. of buses = 2 & space consumed = 10
+No. of cars = 10 & space consumed = 20
+No. of tempo = 1 & space consumed = 2
+No. of erickshaw = 4 & space consumed = 8
+No. of bikes & scooties = 10 & space consumed = 10
+Total Vehicles = 28
+Congestion = 0.7333333333333333
+
+		Details for road 2 are:- 
+
+No. of buses = 1 & space consumed = 5
+No. of cars = 8 & space consumed = 16
+No. of tempo = 4 & space consumed = 8
+No. of erickshaw = 3 & space consumed = 6
+No. of bikes & scooties = 12 & space consumed = 12
+No. of cycles = 5 & space consumed = 5
+Total Vehicles = 33
+Congestion = 0.6933333333333334
+
+		Details for road 3 are:- 
+
+No. of buses = 2 & space consumed = 10
+No. of cars = 12 & space consumed = 24
+No. of tempo = 3 & space consumed = 6
+No. of bikes & scooties = 15 & space consumed = 15
+Total Vehicles = 32
+Congestion = 0.7333333333333333
+
+		Details for road 4 are:- 
+
+No. of buses = 3 & space consumed = 15
+No. of cars = 10 & space consumed = 20
+No. of erickshaw = 2 & space consumed = 4
+No. of bikes & scooties = 5 & space consumed = 5
+No. of cycles = 1 & space consumed = 1
+Total Vehicles = 21
+Congestion = 0.6
